@@ -1,21 +1,16 @@
+![MyFiziq Logo](https://www.myfiziq.com/assets/images/logo.svg)
+
+# MyFaCSS
+
+## Based on:
+
 <img src="https://raw.githubusercontent.com/tolo/InterfaCSS/master/Resources/InterfaCSS-title-logo.png" alt="InterfaCSS" title="InterfaCSS" width="432">
 
-
-***Update:*** The work with a new and improved version of InterfaCSS is underway in the **[develop](https://github.com/tolo/InterfaCSS/tree/develop)** branch... 😁 The latest version (Beta2) adds support for XML-based layout using **Flexbox** (powered by [Facebook Yoga](https://yogalayout.com))!
-
-
-[![Build Status](https://travis-ci.org/tolo/InterfaCSS.svg?branch=master)](https://travis-ci.org/tolo/InterfaCSS)
-
-
-> Everyone loves a beautifully designed app with a consistent UI, and getting there shouldn't take a huge effort. What if there was a way to do ***styling***, ***theming*** and ***layout*** in a concise and powerful way, without constantly having to repeat yourself. What if things could be more like the web?
-
-
-
-## Welcome to InterfaCSS
-
+## Welcome to MyFaCSS
 
 ### Simple yet powerful styling
-InterfaCSS uses an easy to understand styling [***syntax***](https://github.com/tolo/InterfaCSS/wiki/Stylesheet-format) that is based on the the familiar ***CSS*** styling language used on the web (augmented with some *Sass/Less*-like features, such as *nested declarations* and *variables*), which means that you (and your designer) will probably feel right at home. InterfaCSS supports a rich selector syntax (*type*, *class* and *element id* selectors, *selector combinators*, *pseudo classes*, etc) and property names are what you expect them to be - i.e. the same as in `UIKit`, and you can set things like *fonts, colors, images, transform, insets, offsets, rects, enums* and much, much [***more***](https://github.com/tolo/InterfaCSS/wiki/Stylesheet-Property-Reference).
+
+MyFaCSS uses an easy to understand styling [***syntax***](https://github.com/tolo/InterfaCSS/wiki/Stylesheet-format) that is based on the the familiar ***CSS*** styling language used on the web (augmented with some *Sass/Less*-like features, such as *nested declarations* and *variables*), which means that you (and your designer) will probably feel right at home. MyFaCSS supports a rich selector syntax (*type*, *class* and *element id* selectors, *selector combinators*, *pseudo classes*, etc) and property names are what you expect them to be - i.e. the same as in `UIKit`, and you can set things like *fonts, colors, images, transform, insets, offsets, rects, enums* and much, much [***more***](https://github.com/tolo/InterfaCSS/wiki/Stylesheet-Property-Reference).
 
 ```css
 #helloWorldButton {
@@ -31,7 +26,8 @@ InterfaCSS uses an easy to understand styling [***syntax***](https://github.com/
 ```
 
 
-### InterfaCSS can get you [DRY](http://en.wikipedia.org/wiki/Don't_repeat_yourself)
+### MyFaCSS can get you [DRY](http://en.wikipedia.org/wiki/Don't_repeat_yourself)
+
 We all hate to duplicate code, so why should styling be any different? Sure, `UIAppearance` provides some help, but would you still want to write (and read) things like this:
 
 ```objective-c
@@ -52,9 +48,9 @@ BraveNewViewController UITableViewCell UIButton.mySpecialButton {
 }
 ```
 
-
 ### Flexible layouts, the easy way
-InterfaCSS lets you define ***[layouts](https://github.com/tolo/InterfaCSS/wiki/Using-InterfaCSS#layout-of-views)*** based on values that depend on the position and size of other elements. Layouts are expressed directly in the stylesheet file, and the format is very easy to understand.
+
+MyFaCSS lets you define ***[layouts](https://github.com/tolo/InterfaCSS/wiki/Using-InterfaCSS#layout-of-views)*** based on values that depend on the position and size of other elements. Layouts are expressed directly in the stylesheet file, and the format is very easy to understand.
 
 ```css
 #view1 {
@@ -66,7 +62,7 @@ InterfaCSS lets you define ***[layouts](https://github.com/tolo/InterfaCSS/wiki/
 }
 ```
 
-In addition, using a ***[view builder](https://github.com/tolo/InterfaCSS/wiki/Using-InterfaCSS#creating-a-view-hierarchy)***, setting up the UI in your view controllers is a breeze - gone are the days of writing tedious UI setup code or fiddling with unwieldy xib-files (but you can still use them just fine with InterfaCSS if you want of course) - simply define your UI in an XML file or do it in code, by using [`ISSViewBuilder`](InterfaCSS/UI/ISSViewBuilder.h).
+In addition, using a ***[view builder](https://github.com/tolo/InterfaCSS/wiki/Using-InterfaCSS#creating-a-view-hierarchy)***, setting up the UI in your view controllers is a breeze - gone are the days of writing tedious UI setup code or fiddling with unwieldy xib-files (but you can still use them just fine with MyFaCSS if you want of course) - simply define your UI in an XML file or do it in code, by using [`ISSViewBuilder`](InterfaCSS/UI/ISSViewBuilder.h).
 
 *XML:*
 ```xml
@@ -101,7 +97,7 @@ self.view.elementIdISS = @"groovyElement"; // To uniquely style a specific eleme
 [self.view removeStyleClassISS:@"anEvenMoreGroovyStyle"];
 ```
 
-Read more about how styling is applied on the ***[Using InterfaCSS](https://github.com/tolo/InterfaCSS/wiki/Using-InterfaCSS)*** wiki page.
+Read more about how styling is applied on the ***[Using MyFaCSS](https://github.com/tolo/InterfaCSS/wiki/Using-InterfaCSS)*** wiki page.
 
 
 ### Stylesheets
@@ -124,27 +120,26 @@ To make development simpler and faster, try using an auto-refreshable stylesheet
    [NSURL URLWithString:@"http://www.mygroovycloudprovider.com/user/directory/mymyDazzlingStyles.css"]];
 ```
 
-
-
 ## Getting started
 
 ### Install
-You can add InterfaCSS to your project in two ways:
+
+You can add MyFaCSS to your project in two ways:
 
 * The simplest way is to use [CocoaPods](http://cocoapods.org/).
 
 * Download the source and add the files in the `InterfaCSS` directory to your project.
 
-
 ### Sample code
-Checking out the sample code is a good way to get a feel for how InterfaCSS is used in an app. To run the sample code, do like this:
+
+Checking out the sample code is a good way to get a feel for how MyFaCSS is used in an app. To run the sample code, do like this:
 
 * Run `pod install` in the `Samples/SimpleSample` directory.
 * Open `SimpleSample.xcworkspace`.
 * Build and run.
 
 
-### Setup InterfaCSS in your app
+### Setup MyFaCSS in your app
 
 * Load a stylesheet, like this: `[[InterfaCSS sharedInstance] loadStyleSheetFromMainBundleFile:@"myDazzlingStyles.css"];`. A good place to do this is in your **app delegate**, when your app is first launched, but if you have a lot of stylesheets it's better to defer loading of the stylesheets to when you actually need them (`loadView` of a particular view controller might be a better place in this case).
 

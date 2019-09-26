@@ -1,33 +1,37 @@
-#Changes
+# Changes
 
-##Version 1.5.5
+## Version 19.1.4
+
+* Bespoke MyFiziq fork, change name to MyFaCSS so as to avoid dependency collisions.
+
+## Version 1.5.5
 
 ### Fixes/changes
 * Fixed support for using system font (using `system` as font name or omitting font name entirely), and added support for using bold and italic system fonts (`systemBold` and `systemItalic`).
 
 
-##Version 1.5.3
+## Version 1.5.3
 
 ### Bug fixes
 * Fixed issue with property `animating` of UIActivityIndicatorView.
 
 
 
-##Version 1.5.2
+## Version 1.5.2
 
 ### Bug fixes
 * Added fix for reloading of scoped stylesheets ([pull request 62](https://github.com/tolo/InterfaCSS/issues/62), added by @fantast1k).
 
 
 
-##Version 1.5.1
+## Version 1.5.1
 
 ### Bug fixes
 * Fixed copy/paste bug in ISSViewBuilder (resolves [issue 61](https://github.com/tolo/InterfaCSS/issues/61), reported by @bangerang).
 
 
 
-##Version 1.5
+## Version 1.5
 
 ### New features & changes
 * Added support for multiple style classes in selector declarations.
@@ -40,14 +44,14 @@
 
 
 
-##Version 1.4.4
+## Version 1.4.4
 
 ### Bug fixes
 * Added workaround for problem with circular relationships occurring for some nested elements key paths (inputView and inputAccessoryView), leading to infinite loops while applying style.
 
 
 
-##Version 1.4.3
+## Version 1.4.3
 
 ### Bug fixes
 
@@ -60,7 +64,7 @@
 
 
 
-##Version 1.4.2
+## Version 1.4.2
 
 ### Bug fixes
 
@@ -71,7 +75,7 @@
 
 
 
-##Version 1.4.1
+## Version 1.4.1
 
 ### Bug fixes
 
@@ -79,7 +83,7 @@
 
 
 
-##Version 1.4
+## Version 1.4
 
 ### New features & changes
 * Significantly improved performance of stylesheet parsing, primarily by replacing Parcoa with a custom parser implementation (inspired by Parcoa).
@@ -89,7 +93,7 @@
 
 
 
-##Version 1.3.2
+## Version 1.3.2
 
 ### Bug fixes
 * Fixed problem with infinite loops occurring under certain circumstances while traversing the view hierarchy ([issue 49](https://github.com/tolo/InterfaCSS/issues/49), reported by @bangerang).
@@ -100,7 +104,7 @@
 
 
 
-##Version 1.3.1
+## Version 1.3.1
 
 ### Bug fixes
 * Fixed issue with using +/- without adjoining whitespace in ISSLayout definitions. 
@@ -109,7 +113,7 @@
  
 
 
-##Version 1.3
+## Version 1.3
 
 ### New features & changes
 * View definition file changes: made `collectionViewLayout` preferred tag name for UICollectionViewLayout and added better parser error logging. 
@@ -129,7 +133,7 @@
 
 
 
-##Version 1.2.1
+## Version 1.2.1
 
 ### Bug fixes
 * Changed incorrect type of attributed string properties `underlineStyle` and `strikeThroughStyle` from number to (bitmask) enum (NSUnderlineStyle* and NSUnderlinePattern* now supported). 
@@ -138,7 +142,7 @@
 
 
 
-##Version 1.2
+## Version 1.2
 
 ### New features & changes
 * Added support for properties leftViewMode and rightViewMode in UITextField. Also added leftView and rightView as valid property prefix key paths. 
@@ -156,7 +160,7 @@
 
 
 
-##Version 1.1.1
+## Version 1.1.1
 
 ### Bug fixes
 * Removed incorrect warning logging in view definition file parser (ISSViewHierarchyParser).  
@@ -164,7 +168,7 @@
 
 
 
-##Version 1.1
+## Version 1.1
 
 ### New features & changes
 * Added support for scoping stylesheets to specific view controllers (for instance).
@@ -188,13 +192,13 @@
 
 
 
-##Version 1.0.1
+## Version 1.0.1
 
 ### Bug fixes
 * Added fix for incorrect import of Parcoa header file ([issue 34](https://github.com/tolo/InterfaCSS/issues/34), reported by @TadeasKriz).
 
 
-##Version 1.0.0
+## Version 1.0.0
 
 ### New features & changes
 * Added ISSLayout - a lightweight and flexible layout system.
@@ -209,7 +213,7 @@
 * Fixed issues with ISSPropertyTypeNumber not supporting negative numbers ([issue 30](https://github.com/tolo/InterfaCSS/issues/30), reported by @tbrannam).
 
 
-##Version 0.9.13
+## Version 0.9.13
 
 ### New features & changes
 * Added support for specifying the collection view layout class (via the `layoutClass` attribute) when creating collection views in a view definition file (fixes [issue 10](https://github.com/tolo/InterfaCSS/issues/10), reported by @tbrannam).
@@ -224,7 +228,7 @@
 * Merged fix for incorrect parsing of font names with spaces ([issue 22](https://github.com/tolo/InterfaCSS/issues/22)) added by @tbrannam.
 
 
-##Version 0.9.12
+## Version 0.9.12
 
 ### New features & changes
 * Added support for attributed string properties (`attributedText` in `UILabel`, `UITextField` and `UITextView`, and `attributedTitle` in `UIButton`).
@@ -249,13 +253,13 @@
 * Added fix for issue with custom enumerated property definition ([issue 16](https://github.com/tolo/InterfaCSS/issues/16), reported by @tbrannam)
 
 
-##Version 0.9.11
+## Version 0.9.11
 
 ### Bug fixes
 * Fixed caching issues, partially related to custom styling identities.
 
 
-##Version 0.9.10
+## Version 0.9.10
 
 ### New features & changes
 * Added support for processing refreshable stylesheets after normal stylesheets (`processRefreshableStylesheetsLast`)
@@ -270,7 +274,7 @@
 * Fixed bug in replacement of unicode escape sequences (`[NSString iss_stringByReplacingUnicodeSequences]`).
 
 
-##Version 0.9.9
+## Version 0.9.9
 
 ### New features & changes
 * Swift compatibility fix - added `sharedInstance` class method as a replacement for the `interfaCSS` method.
@@ -278,21 +282,21 @@
 * Added support for unicode escape sequences (\u0123 and \U00012345) in strings in stylesheets.
 
 
-##Version 0.9.8
+## Version 0.9.8
 
 ### New features & changes
 * Improved handling of transform and anchor point.
 * Added support for applying styling only once (applyStylingOnceISS).
 
 
-##Version 0.9.7
+## Version 0.9.7
 
 ### Bug fixes
 * Fixed crash caused by bad handling of `UINavigationItem`.
 
 
 
-##Version 0.9.6
+## Version 0.9.6
 
 ### New features & changes
 * Updated caching of styles to be more performant.
@@ -303,7 +307,7 @@
 
 
 
-##Version 0.9.5
+## Version 0.9.5
 
 ### New features & changes
 * Full UIKit enum names (i.e. `UIViewAutoresizingFlexibleWidth`) are now supported alongside short versions (i.e. `width`).
@@ -315,7 +319,7 @@
 
 
 
-##Version 0.9.4
+## Version 0.9.4
 
 ### New features & changes
 * Added support to `UIView+InterfaCSS` for getting notified when styles will be and have been applied for a view, via blocks (`willApplyStylingBlockISS` & `didApplyStylingBlockISS).
@@ -324,14 +328,14 @@
 
 
 
-##Version 0.9.3
+## Version 0.9.3
 
 ### Bug fixes
 * Fixed issue with image parsing using the `image("xxx")` format.
 
 
 
-##Version 0.9.2
+## Version 0.9.2
 
 ### New features & changes
 * The order of property declarations is now maintained when parsing a stylesheet file.
@@ -344,7 +348,7 @@
 
 
 
-##Version 0.9.1
+## Version 0.9.1
 
 ### Bug fixes
 
@@ -362,7 +366,7 @@
 
 
 
-##Version 0.9.0
+## Version 0.9.0
 
 ### New features & changes
 * Added support for child, adjacent sibling and general sibling selector combinators.
