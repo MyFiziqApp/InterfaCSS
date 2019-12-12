@@ -103,9 +103,8 @@ NSString* const ISSRefreshableResourceErrorDomain = @"InterfaCSS.RefreshableReso
 
 - (void) performHeadRequest:(NSMutableURLRequest*)request completionHandler:(ISSRefreshableResourceLoadCompletionBlock)completionHandler {
     [request setHTTPMethod:@"HEAD"];
-
-    [NSURLConnection sendAsynchronousRequest:request queue:[[NSOperationQueue alloc] init]
-                           completionHandler:^(NSURLResponse* response, NSData* data, NSError* error) {
+    
+    [[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
         BOOL signalErrorOccurred = NO;
         if ( error == nil ) {
             NSHTTPURLResponse* httpURLResponse = [response isKindOfClass:NSHTTPURLResponse.class] ? (NSHTTPURLResponse*)response : nil;
@@ -146,9 +145,7 @@ NSString* const ISSRefreshableResourceErrorDomain = @"InterfaCSS.RefreshableReso
 
 - (void) performGetRequest:(NSMutableURLRequest*)request completionHandler:(ISSRefreshableResourceLoadCompletionBlock)completionHandler {
     [request setHTTPMethod:@"GET"];
-
-    [NSURLConnection sendAsynchronousRequest:request queue:[[NSOperationQueue alloc] init]
-       completionHandler:^(NSURLResponse* response, NSData* data, NSError* error) {
+    [[NSURLSession sharedSession] dataTaskWithRequest:request completionHandler:^(NSData * _Nullable data, NSURLResponse * _Nullable response, NSError * _Nullable error) {
            BOOL signalErrorOccurred = NO;
            if ( error == nil ) {
                NSHTTPURLResponse* httpURLResponse = [response isKindOfClass:NSHTTPURLResponse.class] ? (NSHTTPURLResponse*)response : nil;

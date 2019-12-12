@@ -1,0 +1,15 @@
+platform :ios, '12.1'
+
+target 'MyFaCSSExample' do
+  # Comment the next line if you don't want to use dynamic frameworks
+  use_frameworks!
+
+  # Pods for MyFaCSSExample
+  pod 'MyFaCSS', :path => '../../'
+
+  target 'MyFaCSSExampleTests' do
+    inherit! :search_paths
+    # Pods for testing
+  end
+
+end

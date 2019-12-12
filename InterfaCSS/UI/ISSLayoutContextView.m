@@ -87,9 +87,10 @@
 
     // Get top and bottom layout guides (thank you Apple)
     UIViewController* parentViewController = selfDetails.closestViewController;
-    id<UILayoutSupport> topLayoutGuide = [parentViewController respondsToSelector:@selector(topLayoutGuide)] ? parentViewController.topLayoutGuide : nil;
-    id<UILayoutSupport> bottomLayoutGuide = [parentViewController respondsToSelector:@selector(bottomLayoutGuide)] ? parentViewController.bottomLayoutGuide : nil;
-    UIEdgeInsets layoutGuideInsets = UIEdgeInsetsMake(topLayoutGuide.length, 0, bottomLayoutGuide.length, 0);
+    NSLayoutConstraint topGuide = [parentViewController respondsToSelector:@selector(topAnchor)] ? parentViewController.view.safeAreaLayoutGuide.topAnchor : nil;
+    NSLayoutConstraint bottomGuide = [parentViewController respondsToSelector:@selector(bottomAnchor)] ? parentViewController.view.safeAreaLayoutGuide.bottomAnchor : nil;
+
+    UIEdgeInsets layoutGuideInsets = UIEdgeInsetsMake(topGuide.constant, 0, bottomGuide.constant, 0);
     
     // Gather up details for all views with layouts, and setup mappings of elementId to element details
     NSMutableArray* unresolvedElementDetails = [NSMutableArray array];

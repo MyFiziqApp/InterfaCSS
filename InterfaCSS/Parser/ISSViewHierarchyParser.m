@@ -16,6 +16,7 @@
 #import "ISSUIElementDetails.h"
 #import "ISSRuntimeIntrospectionUtils.h"
 #import "ISSStyleSheetParser.h"
+#import <WebKit/WebKit.h>
 
 
 NSString* const ISSViewDefinitionFileAttributeId = @"id";
@@ -58,7 +59,7 @@ static NSDictionary* tagToClass;
         @"tableview": UITableView.class,
         @"view": UIView.class,
 #if TARGET_OS_TV == 0
-        @"webview": UIWebView.class,
+        @"webview": WKWebView.class,
 #endif
         // Components:
         @"activityindicator": UIActivityIndicatorView.class,

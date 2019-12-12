@@ -240,20 +240,20 @@
 }
 
 #if TARGET_OS_TV == 0
-+ (UIWebView*) webViewWithStyle:(NSString*)styleClass {
-    return [self setupView:[[UIWebView alloc] init] withStyleClass:styleClass];
++ (WKWebView*) webViewWithStyle:(NSString*)styleClass {
+    return [self setupView:[[WKWebView alloc] init] withStyleClass:styleClass];
 }
 
-+ (UIWebView*) webViewWithId:(NSString*)elementId {
-    return [self setupView:[[UIWebView alloc] init] withId:elementId andStyleClass:nil];
++ (WKWebView*) webViewWithId:(NSString*)elementId {
+    return [self setupView:[[WKWebView alloc] init] withId:elementId andStyleClass:nil];
 }
 
-+ (UIWebView*) webViewWithStyle:(NSString*)styleClass andSubViews:(SubViewBlock)subViewBlock {
++ (WKWebView*) webViewWithStyle:(NSString*)styleClass andSubViews:(SubViewBlock)subViewBlock {
     return [self webViewWithId:nil andStyle:styleClass andSubViews:subViewBlock];
 }
 
-+ (UIWebView*) webViewWithId:(NSString*)elementId andStyle:(NSString*)styleClass andSubViews:(SubViewBlock)subViewBlock {
-    return [self setupView:[[UIWebView alloc] init] withId:elementId andStyleClass:styleClass andSubViews:subViewBlock];
++ (WKWebView*) webViewWithId:(NSString*)elementId andStyle:(NSString*)styleClass andSubViews:(SubViewBlock)subViewBlock {
+    return [self setupView:[[WKWebView alloc] init] withId:elementId andStyleClass:styleClass andSubViews:subViewBlock];
 }
 #endif
 

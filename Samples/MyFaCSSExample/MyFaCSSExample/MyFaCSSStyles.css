@@ -1,0 +1,15 @@
+@primaryColor: #42ecf5;
+@fadeColor: gradient(@primaryColor, #f200ff);
+
+.main-view-controller {
+    backgroundColor: @fadeColor;
+}
+
+.main-view-controller-label {
+    frame: rect(20, 100, 300, 400);
+/*    textColor: #0c1211;*/
+/*    font: systemBold 48.0;*/
+    textAlignment: center;
+    numberOfLines: 0;
+    attributedText: "Hello" (font: systemBold 48, color: #0c1211), " MyFaCSS" (font: system 60, color: darkgray);
+}
