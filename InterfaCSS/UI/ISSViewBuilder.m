@@ -239,25 +239,6 @@
     return [self setupView:[(UITableView*)[clazz alloc] initWithFrame:CGRectZero style:tableViewStyle] withStyleClass:styleClass andSubViews:subViewBlock];
 }
 
-#if TARGET_OS_TV == 0
-+ (WKWebView*) webViewWithStyle:(NSString*)styleClass {
-    return [self setupView:[[WKWebView alloc] init] withStyleClass:styleClass];
-}
-
-+ (WKWebView*) webViewWithId:(NSString*)elementId {
-    return [self setupView:[[WKWebView alloc] init] withId:elementId andStyleClass:nil];
-}
-
-+ (WKWebView*) webViewWithStyle:(NSString*)styleClass andSubViews:(SubViewBlock)subViewBlock {
-    return [self webViewWithId:nil andStyle:styleClass andSubViews:subViewBlock];
-}
-
-+ (WKWebView*) webViewWithId:(NSString*)elementId andStyle:(NSString*)styleClass andSubViews:(SubViewBlock)subViewBlock {
-    return [self setupView:[[WKWebView alloc] init] withId:elementId andStyleClass:styleClass andSubViews:subViewBlock];
-}
-#endif
-
-
 #pragma mark - Components
 
 + (UIActivityIndicatorView*) activityIndicatorViewWithStyle:(NSString*)styleClass {

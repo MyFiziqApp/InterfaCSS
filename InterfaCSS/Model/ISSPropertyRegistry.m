@@ -887,32 +887,6 @@ static void createSegmentIfNeeded(UISegmentedControl* segmentedControl, NSUInteg
     allProperties = [allProperties setByAddingObjectsFromSet:tableViewProperties];
 
 
-#pragma mark - UIWebView
-    
-#if TARGET_OS_TV == 0
-    NSDictionary* dataDetectorTypesValues = @{@"all" : @(UIDataDetectorTypeAll), @"none" : @(UIDataDetectorTypeNone), @"address" : @(UIDataDetectorTypeAddress),
-                        @"calendarEvent" : @(UIDataDetectorTypeCalendarEvent), @"link" : @(UIDataDetectorTypeLink), @"phoneNumber" : @(UIDataDetectorTypePhoneNumber)};
-#endif
-    
-    NSSet* webViewProperties = [NSSet setWithArray:@[
-            p(S(scalesPageToFit), ISSPropertyTypeBool),
-            p(S(allowsInlineMediaPlayback), ISSPropertyTypeBool),
-            p(S(suppressesIncrementalRendering), ISSPropertyTypeBool),
-            p(S(keyboardDisplayRequiresUserAction), ISSPropertyTypeBool),
-            p(S(pageLength), ISSPropertyTypeNumber),
-            p(S(gapBetweenPages), ISSPropertyTypeNumber),
-#if TARGET_OS_TV == 0
-            pe(S(dataDetectorTypes), dataDetectorTypesValues),
-            p(S(mediaPlaybackRequiresUserAction), ISSPropertyTypeBool),
-            p(S(mediaPlaybackAllowsAirPlay), ISSPropertyTypeBool),
-            pe(S(paginationMode), @{@"unpaginated" : @(UIWebPaginationModeUnpaginated), @"lefttoright" : @(UIWebPaginationModeLeftToRight),
-                                    @"toptobottom" : @(UIWebPaginationModeTopToBottom), @"bottomtotop" : @(UIWebPaginationModeBottomToTop), @"righttoleft" : @(UIWebPaginationModeRightToLeft)}),
-            pe(S(paginationBreakingMode), @{@"page" : @(UIWebPaginationBreakingModePage), @"column" : @(UIWebPaginationBreakingModeColumn)})
-#endif
-    ]];
-    allProperties = [allProperties setByAddingObjectsFromSet:webViewProperties];
-
-    
 #pragma mark - UICollectionView
 
     NSSet* collectionViewProperties = [NSSet setWithArray:@[
@@ -1081,6 +1055,11 @@ static void createSegmentIfNeeded(UISegmentedControl* segmentedControl, NSUInteg
 
     
 #pragma mark - UITextView
+    
+#if TARGET_OS_TV == 0
+    NSDictionary* dataDetectorTypesValues = @{@"all" : @(UIDataDetectorTypeAll), @"none" : @(UIDataDetectorTypeNone), @"address" : @(UIDataDetectorTypeAddress),
+                        @"calendarEvent" : @(UIDataDetectorTypeCalendarEvent), @"link" : @(UIDataDetectorTypeLink), @"phoneNumber" : @(UIDataDetectorTypePhoneNumber)};
+#endif
 
     NSSet* textViewProperties = [NSSet setWithArray:@[
             p(S(allowsEditingTextAttributes), ISSPropertyTypeBool),
@@ -1474,9 +1453,6 @@ static void createSegmentIfNeeded(UISegmentedControl* segmentedControl, NSUInteg
             resistanceIsFutile UIImageView.class : imageViewProperties,
             resistanceIsFutile UIScrollView.class : scrollViewProperties,
             resistanceIsFutile UITableView.class : tableViewProperties,
-#if TARGET_OS_TV == 0
-            resistanceIsFutile UIWebView.class : webViewProperties,
-#endif
             resistanceIsFutile UITableViewCell.class : tableViewCellProperties,
             resistanceIsFutile UICollectionView.class : collectionViewProperties,
 
