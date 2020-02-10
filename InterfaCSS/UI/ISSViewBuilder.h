@@ -8,7 +8,6 @@
 
 #import <UIKit/UIKit.h>
 #import <Foundation/Foundation.h>
-#import <WebKit/WebKit.h>
 
 #import "ISSRootView.h" // Import this here to avoid users having to import this file as well when using methods like rootViewWithStyle...
 
@@ -20,7 +19,6 @@
 #define ISSBuildImageView ISSViewBuilder imageViewWithStyle
 #define ISSBuildScrollView ISSViewBuilder scrollViewWithStyle
 #define ISSBuildTableView ISSViewBuilder tableViewWithStyle
-#define ISSBuildWebView ISSViewBuilder webViewWithStyle
 
 #define ISSBuildActivityIndicator ISSViewBuilder activityIndicatorViewWithStyle
 #define ISSBuildButton ISSViewBuilder buttonWithStyle
@@ -194,18 +192,6 @@ typedef NSArray* _Nonnull (^SubViewBlock)(void);
 + (UITableView*) tableViewOfClass:(nullable Class)clazz withStyle:(nullable NSString*)styleClass andTableViewStyle:(UITableViewStyle)tableViewStyle andSubViews:(nullable SubViewBlock)subViewBlock;
 /** Builds a `UITableView` with the specified implementation class, element id and style class, and adds the subviews from the specified `SubViewBlock`. */
 + (UITableView*) tableViewOfClass:(nullable Class)clazz withId:(nullable NSString*)elementId andStyle:(nullable NSString*)styleClass andTableViewStyle:(UITableViewStyle)tableViewStyle andSubViews:(nullable SubViewBlock)subViewBlock;
-
-#if TARGET_OS_TV == 0
-/** Builds a `WKWebView` with the specified style class. */
-+ (WKWebView*) webViewWithStyle:(NSString*)styleClass;
-/** Builds a `WKWebView` with the specified element id. */
-+ (WKWebView*) webViewWithId:(NSString*)elementId;
-
-/** Builds a `WKWebView` with the specified style class and adds the subviews from the specified `SubViewBlock`. */
-+ (WKWebView*) webViewWithStyle:(NSString*)styleClass andSubViews:(SubViewBlock)subViewBlock;
-/** Builds a `WKWebView` with the specified element id and style class, and adds the subviews from the specified `SubViewBlock`. */
-+ (WKWebView*) webViewWithId:(nullable NSString*)elementId andStyle:(nullable NSString*)styleClass andSubViews:(SubViewBlock)subViewBlock;
-#endif
 
 /** Builds a `UIActivityIndicatorView` with the specified style class. */
 + (UIActivityIndicatorView*) activityIndicatorViewWithStyle:(NSString*)styleClass;
