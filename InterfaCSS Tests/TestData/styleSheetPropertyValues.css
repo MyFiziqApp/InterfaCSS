@@ -150,6 +150,69 @@
 .font11 {
     font: systemBold 42;
 }
+.font12 {
+    font: system-bold 42;
+}
+.font13 {
+    font: system-light 42;
+}
+.font14 {
+    font: systemUltraLight 42;
+}
+.font15 {
+    font: system-heavy 42;
+}
+.font16 {
+    font: systemHeavy 42;
+}
+.font17 {
+    font: systemMedium 42;
+}
+.font18 {
+    font: systemmedium 42;
+}
+.font19 {
+    font: system-medium 42;
+}
+.font20 {
+    font: system-Medium 42;
+}
+.font21 {
+    font: "some made up font name" 42;
+}
+.fontSystem {
+    font: system 42;
+}
+.fontSystemBold {
+    font: system-bold 42;
+}
+.fontSystemThin {
+    font: system-thin 42;
+}
+.fontSystemHeavy {
+    font: system-heavy 42;
+}
+.fontSystemLight {
+    font: system-light 42;
+}
+.fontSystemMedium {
+    font: system-medium 42;
+}
+.fontSystemRegular {
+    font: system-regular 42;
+}
+.fontSystemSemiBold {
+    font: system-semibold 42;
+}
+.fontSystemBlack {
+    font: system-black 42;
+}
+.fontSystemUltraLight {
+    font: system-ultralight 42;
+}
+.fontSystemItalic {
+    font: system-italic 42;
+}
 
 .image1 {
     image: image.png;
