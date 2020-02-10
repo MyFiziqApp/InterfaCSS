@@ -580,7 +580,73 @@ static ISSDefaultStyleSheetTestParser* defaultParser;
     XCTAssertEqualObjects(value, [UIFont italicSystemFontOfSize:42], @"Unexpected font value");
 
     value = [[self getPropertyValuesWithNames:@[@"font"] fromStyleClass:@"font11"] firstObject];
-    XCTAssertEqualObjects(value, [UIFont boldSystemFontOfSize:42], @"Unexpected font value");
+    XCTAssertEqualObjects(value, [UIFont systemFontOfSize:42 weight:UIFontWeightBold], @"Unexpected font value");
+    
+    value = [[self getPropertyValuesWithNames:@[@"font"] fromStyleClass:@"font12"] firstObject];
+    XCTAssertEqualObjects(value, [UIFont systemFontOfSize:42 weight:UIFontWeightBold], @"Unexpected font value");
+    
+    value = [[self getPropertyValuesWithNames:@[@"font"] fromStyleClass:@"font13"] firstObject];
+    XCTAssertEqualObjects(value, [UIFont systemFontOfSize:42 weight:UIFontWeightLight], @"Unexpected font value");
+    
+    value = [[self getPropertyValuesWithNames:@[@"font"] fromStyleClass:@"font14"] firstObject];
+    XCTAssertEqualObjects(value, [UIFont systemFontOfSize:42 weight:UIFontWeightUltraLight], @"Unexpected font value");
+    
+    value = [[self getPropertyValuesWithNames:@[@"font"] fromStyleClass:@"font15"] firstObject];
+    XCTAssertEqualObjects(value, [UIFont systemFontOfSize:42 weight:UIFontWeightHeavy], @"Unexpected font value");
+    
+    value = [[self getPropertyValuesWithNames:@[@"font"] fromStyleClass:@"font16"] firstObject];
+    XCTAssertEqualObjects(value, [UIFont systemFontOfSize:42 weight:UIFontWeightHeavy], @"Unexpected font value");
+    
+    value = [[self getPropertyValuesWithNames:@[@"font"] fromStyleClass:@"font17"] firstObject];
+    XCTAssertEqualObjects(value, [UIFont systemFontOfSize:42 weight:UIFontWeightMedium], @"Unexpected font value");
+    
+    value = [[self getPropertyValuesWithNames:@[@"font"] fromStyleClass:@"font18"] firstObject];
+    XCTAssertEqualObjects(value, [UIFont systemFontOfSize:42 weight:UIFontWeightMedium], @"Unexpected font value");
+    
+    value = [[self getPropertyValuesWithNames:@[@"font"] fromStyleClass:@"font19"] firstObject];
+    XCTAssertEqualObjects(value, [UIFont systemFontOfSize:42 weight:UIFontWeightMedium], @"Unexpected font value");
+    
+    value = [[self getPropertyValuesWithNames:@[@"font"] fromStyleClass:@"font20"] firstObject];
+    XCTAssertEqualObjects(value, [UIFont systemFontOfSize:42 weight:UIFontWeightMedium], @"Unexpected font value");
+    
+    value = [[self getPropertyValuesWithNames:@[@"font"] fromStyleClass:@"font20"] firstObject];
+    XCTAssertEqualObjects(value, [UIFont systemFontOfSize:42 weight:UIFontWeightMedium], @"Unexpected font value");
+    
+    value = [[self getPropertyValuesWithNames:@[@"font"] fromStyleClass:@"font21"] firstObject];
+    XCTAssertEqualObjects(value, [UIFont systemFontOfSize:42], @"Unexpected font value");
+    
+    value = [[self getPropertyValuesWithNames:@[@"font"] fromStyleClass:@"fontSystem"] firstObject];
+    XCTAssertEqualObjects(value, [UIFont systemFontOfSize:42], @"Unexpected font value");
+
+    value = [[self getPropertyValuesWithNames:@[@"font"] fromStyleClass:@"fontSystemBold"] firstObject];
+    XCTAssertEqualObjects(value, [UIFont systemFontOfSize:42 weight:UIFontWeightBold], @"Unexpected font value");
+
+    value = [[self getPropertyValuesWithNames:@[@"font"] fromStyleClass:@"fontSystemThin"] firstObject];
+    XCTAssertEqualObjects(value, [UIFont systemFontOfSize:42 weight:UIFontWeightThin], @"Unexpected font value");
+
+    value = [[self getPropertyValuesWithNames:@[@"font"] fromStyleClass:@"fontSystemHeavy"] firstObject];
+    XCTAssertEqualObjects(value, [UIFont systemFontOfSize:42 weight:UIFontWeightHeavy], @"Unexpected font value");
+
+    value = [[self getPropertyValuesWithNames:@[@"font"] fromStyleClass:@"fontSystemLight"] firstObject];
+    XCTAssertEqualObjects(value, [UIFont systemFontOfSize:42 weight:UIFontWeightLight], @"Unexpected font value");
+
+    value = [[self getPropertyValuesWithNames:@[@"font"] fromStyleClass:@"fontSystemMedium"] firstObject];
+    XCTAssertEqualObjects(value, [UIFont systemFontOfSize:42 weight:UIFontWeightMedium], @"Unexpected font value");
+
+    value = [[self getPropertyValuesWithNames:@[@"font"] fromStyleClass:@"fontSystemRegular"] firstObject];
+    XCTAssertEqualObjects(value, [UIFont systemFontOfSize:42 weight:UIFontWeightRegular], @"Unexpected font value");
+
+    value = [[self getPropertyValuesWithNames:@[@"font"] fromStyleClass:@"fontSystemSemiBold"] firstObject];
+    XCTAssertEqualObjects(value, [UIFont systemFontOfSize:42 weight:UIFontWeightSemibold], @"Unexpected font value");
+
+    value = [[self getPropertyValuesWithNames:@[@"font"] fromStyleClass:@"fontSystemBlack"] firstObject];
+    XCTAssertEqualObjects(value, [UIFont systemFontOfSize:42 weight:UIFontWeightBlack], @"Unexpected font value");
+
+    value = [[self getPropertyValuesWithNames:@[@"font"] fromStyleClass:@"fontSystemUltraLight"] firstObject];
+    XCTAssertEqualObjects(value, [UIFont systemFontOfSize:42 weight:UIFontWeightUltraLight], @"Unexpected font value");
+
+    value = [[self getPropertyValuesWithNames:@[@"font"] fromStyleClass:@"fontSystemItalic"] firstObject];
+    XCTAssertEqualObjects(value, [UIFont italicSystemFontOfSize:42], @"Unexpected font value");
 }
 
 - (void) testImagePropertyValue {

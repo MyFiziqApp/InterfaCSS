@@ -29,6 +29,17 @@
 #import "ISSRemoteFont.h"
 #import "ISSDownloadableResource.h"
 
+#define MyFaCSS_SYSTEM_FONT_NAME_STRING         @"system"
+#define MyFaCSS_BOLD_FONT_WEIGHT_STRING         @"bold"
+#define MyFaCSS_THIN_FONT_WEIGHT_STRING         @"thin"
+#define MyFaCSS_HEAVY_FONT_WEIGHT_STRING        @"heavy"
+#define MyFaCSS_LIGHT_FONT_WEIGHT_STRING        @"light"
+#define MyFaCSS_MEDIUM_FONT_WEIGHT_STRING       @"medium"
+#define MyFaCSS_REGULAR_FONT_WEIGHT_STRING      @"regular"
+#define MyFaCSS_SEMI_BOLD_FONT_WEIGHT_STRING    @"semibold"
+#define MyFaCSS_BLACK_FONT_WEIGHT_STRING        @"black"
+#define MyFaCSS_ULTRA_LIGHT_FONT_WEIGHT_STRING  @"ultralight"
+#define MyFaCSS_ITALIC_FONT_WEIGHT_STRING       @"italic"
 
 /* Helper functions */
 
@@ -1198,18 +1209,27 @@ static NSObject* ISSLayoutAttributeSizeToFitFlag;
                 }
             }
         }
-
         if( remoteFontURL ) return [ISSRemoteFont remoteFontWithURL:remoteFontURL fontSize:fontSize];
         else {
-            if( [[fontName lowercaseString] hasPrefix:@"boldsystem"] || [[fontName lowercaseString] hasPrefix:@"systembold"] ) {
-                return [UIFont boldSystemFontOfSize:fontSize];
-            } else if( [[fontName lowercaseString] hasPrefix:@"italicsystem"] || [[fontName lowercaseString] hasPrefix:@"systemitalic"] ) {
-                return [UIFont italicSystemFontOfSize:fontSize];
-            } else if( !fontName || [fontName iss_isEqualIgnoreCase:@"system"] ) {
+            if (!fontName) {
                 return [UIFont systemFontOfSize:fontSize];
-            } else {
-                return [UIFont fontWithName:fontName size:fontSize];
             }
+            if ([fontName hasPrefix:MyFaCSS_SYSTEM_FONT_NAME_STRING]) {
+                NSString *fontWeightName = fontName;
+                if ([fontName containsString:@"-"]) {
+                    fontWeightName = [[fontName componentsSeparatedByString:@"-"].lastObject lowercaseString];
+                } else if (![fontName isEqualToString:MyFaCSS_SYSTEM_FONT_NAME_STRING]) {
+                    NSArray <NSString *> *components = [fontName componentsSeparatedByString:MyFaCSS_SYSTEM_FONT_NAME_STRING];
+                    fontWeightName = [[components lastObject] lowercaseString];
+                }
+                return [self systemFontWithWeight:fontWeightName forSize:fontSize];
+            }
+            UIFont *font = [UIFont fontWithName:fontName size:fontSize];
+            if (!font) {
+                NSLog(@"The font for name \"%@\" does not exist. Returning system font.", fontName);
+                return [UIFont systemFontOfSize:fontSize];
+            }
+            return font;
         }
     } name:@"font"];
 
@@ -1291,6 +1311,43 @@ static NSObject* ISSLayoutAttributeSizeToFitFlag;
     nestedRulesetParserProxy.wrappedParser = nestedRulesetParser;
 
     return propertyParser;
+}
+
+- (UIFont *)systemFontWithWeight:(NSString *)fontWeight forSize:(CGFloat)fontSize {
+    if ([fontWeight isEqualToString:MyFaCSS_SYSTEM_FONT_NAME_STRING]) {
+        return [UIFont systemFontOfSize:fontSize];
+    }
+    if ([fontWeight isEqualToString:MyFaCSS_BOLD_FONT_WEIGHT_STRING]) {
+        return [UIFont systemFontOfSize:fontSize weight:UIFontWeightBold];
+    }
+    if ([fontWeight isEqualToString:MyFaCSS_THIN_FONT_WEIGHT_STRING]) {
+        return [UIFont systemFontOfSize:fontSize weight:UIFontWeightThin];
+    }
+    if ([fontWeight isEqualToString:MyFaCSS_HEAVY_FONT_WEIGHT_STRING]) {
+        return [UIFont systemFontOfSize:fontSize weight:UIFontWeightHeavy];
+    }
+    if ([fontWeight isEqualToString:MyFaCSS_LIGHT_FONT_WEIGHT_STRING]) {
+        return [UIFont systemFontOfSize:fontSize weight:UIFontWeightLight];
+    }
+    if ([fontWeight isEqualToString:MyFaCSS_MEDIUM_FONT_WEIGHT_STRING]) {
+        return [UIFont systemFontOfSize:fontSize weight:UIFontWeightMedium];
+    }
+    if ([fontWeight isEqualToString:MyFaCSS_REGULAR_FONT_WEIGHT_STRING]) {
+        return [UIFont systemFontOfSize:fontSize weight:UIFontWeightRegular];
+    }
+    if ([fontWeight isEqualToString:MyFaCSS_SEMI_BOLD_FONT_WEIGHT_STRING]) {
+        return [UIFont systemFontOfSize:fontSize weight:UIFontWeightSemibold];
+    }
+    if ([fontWeight isEqualToString:MyFaCSS_BLACK_FONT_WEIGHT_STRING]) {
+        return [UIFont systemFontOfSize:fontSize weight:UIFontWeightBlack];
+    }
+    if ([fontWeight isEqualToString:MyFaCSS_ULTRA_LIGHT_FONT_WEIGHT_STRING]) {
+        return [UIFont systemFontOfSize:fontSize weight:UIFontWeightUltraLight];
+    }
+    if ([fontWeight isEqualToString:MyFaCSS_ITALIC_FONT_WEIGHT_STRING]) {
+        return [UIFont italicSystemFontOfSize:fontSize];
+    }
+    return [UIFont systemFontOfSize:fontSize];
 }
 
 - (ISSParser*) rulesetParserWithContentParser:(ISSParser*)rulesetContentParser selectorsChainsDeclarations:(ISSParser*)selectorsChainsDeclarations {
