@@ -64,18 +64,6 @@ def gitSyncPushGitHub(repo, sdk_version):
 
 # CocoaPods sync functions
 
-def podUpdate(sdk_dir):
-  print("INFO: CocoaPods repo update...")
-  subprocess.run(["pod", "repo", "update"])
-  print("INFO: CocoaPods install...")
-  try:
-    shutil.rmtree(sdk_dir + "/Example/Pods")
-    os.remove(sdk_dir + "/Example/Podfile.lock")
-  except:
-    print("Error removing Pods")
-  example_path = sdk_dir + "/Example"
-  subprocess.run(["pod", "install"], cwd=example_path)
-
 def podSpecLint(sdk_dir):
   print("INFO: Initiating CocoaPods linter...")
   subprocess.run(["pod", "spec", "lint", "--allow-warnings", "--sources=https://cdn.cocoapods.org/,https://git-codecommit.ap-southeast-1.amazonaws.com/v1/repos/myfiziq-sdk-podrepo"])
@@ -121,14 +109,6 @@ def main(arguments):
       return
     gitSyncPullGitHub(repo, sdk_version)
     gitSyncPushGitHub(repo, sdk_version)
-    if gitCheckIsDirty(repo, sdk_version) == True:
-      return
-    print("done.\n\n")
-
-    print("++++ POD UPDATE CHECK ++++")
-    if askUserToContinue() == False:
-      return
-    podUpdate(sdk_dir)
     if gitCheckIsDirty(repo, sdk_version) == True:
       return
     print("done.\n\n")
