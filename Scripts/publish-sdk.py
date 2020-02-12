@@ -62,26 +62,6 @@ def gitSyncPushGitHub(repo, sdk_version):
     print("WARN - 🚨 - An error occured: " + e.stderr)
   return
 
-def gitSyncPullCodeCommit(repo, sdk_version):
-  trunk_branch = sdk_version + '_trunk'
-  ref_spec = "refs/heads/" + trunk_branch + ":refs/heads/" + trunk_branch
-  print("INFO: Pull from CodeCommit...")
-  try:
-    repo.remotes.origin.pull(refspec=ref_spec)
-  except GitCommandError as e:
-    print("WARN - 🚨 - An error occured: " + e.stderr)
-  return
-
-def gitSyncPushCodeCommit(repo, sdk_version):
-  trunk_branch = sdk_version + '_trunk'
-  ref_spec = "refs/heads/" + trunk_branch + ":refs/heads/" + trunk_branch
-  print("INFO: Push to CodeCommit...")
-  try:
-    repo.remotes.origin.push(refspec=ref_spec)
-  except GitCommandError as e:
-    print("WARN - 🚨 - An error occured: " + e.stderr)
-  return
-
 # CocoaPods sync functions
 
 def podUpdate(sdk_dir):
@@ -139,10 +119,8 @@ def main(arguments):
     print("++++ GIT REPO SYNC ++++")
     if askUserToContinue() == False:
       return
-    gitSyncPullCodeCommit(repo, sdk_version)
     gitSyncPullGitHub(repo, sdk_version)
     gitSyncPushGitHub(repo, sdk_version)
-    gitSyncPushCodeCommit(repo, sdk_version)
     if gitCheckIsDirty(repo, sdk_version) == True:
       return
     print("done.\n\n")
