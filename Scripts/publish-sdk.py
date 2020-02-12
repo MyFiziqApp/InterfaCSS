@@ -47,7 +47,7 @@ def gitSyncPullGitHub(repo, sdk_version):
   ref_spec = "refs/heads/" + trunk_branch + ":refs/heads/" + trunk_branch
   print("INFO: Pull from GitHub...")
   try:
-    repo.remotes.fork.pull(refspec=ref_spec)
+    repo.remotes.origin.pull(refspec=ref_spec)
   except GitCommandError as e:
     print("WARN - 🚨 - An error occured: " + e.stderr)
   return
@@ -57,7 +57,7 @@ def gitSyncPushGitHub(repo, sdk_version):
   ref_spec = "refs/heads/" + trunk_branch + ":refs/heads/" + trunk_branch
   print("INFO: Push to GitHub...")
   try:
-    repo.remotes.fork.push(refspec=ref_spec)
+    repo.remotes.origin.push(refspec=ref_spec)
   except GitCommandError as e:
     print("WARN - 🚨 - An error occured: " + e.stderr)
   return
