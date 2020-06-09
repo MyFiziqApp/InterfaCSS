@@ -28,7 +28,7 @@
 #import "ISSLayout.h"
 #import "ISSRemoteFont.h"
 #import "ISSDownloadableResource.h"
-
+// System font name and weights
 #define MyFaCSS_SYSTEM_FONT_NAME_STRING         @"system"
 #define MyFaCSS_BOLD_FONT_WEIGHT_STRING         @"bold"
 #define MyFaCSS_THIN_FONT_WEIGHT_STRING         @"thin"
@@ -40,6 +40,121 @@
 #define MyFaCSS_BLACK_FONT_WEIGHT_STRING        @"black"
 #define MyFaCSS_ULTRA_LIGHT_FONT_WEIGHT_STRING  @"ultralight"
 #define MyFaCSS_ITALIC_FONT_WEIGHT_STRING       @"italic"
+// System color names
+// Adaptable Colors
+/* A blue color that automatically adapts to the current trait environment. */
+#define MyFaCSS_SYSTEM_COLOR_BLUE @"systemblue"
+/* A green color that automatically adapts to the current trait environment. */
+#define MyFaCSS_SYSTEM_COLOR_GREEN @"systemgreen"
+/* An indigo color that automatically adapts to the current trait environment. */
+#define MyFaCSS_SYSTEM_COLOR_INDIGO @"systemindigo"
+/* An orange color that automatically adapts to the current trait environment. */
+#define MyFaCSS_SYSTEM_COLOR_ORANGE @"systemorange"
+/* A pink color that automatically adapts to the current trait environment. */
+#define MyFaCSS_SYSTEM_COLOR_PINK @"systempink"
+/* A purple color that automatically adapts to the current trait environment. */
+#define MyFaCSS_SYSTEM_COLOR_PURPLE @"systempurple"
+/* A red color that automatically adapts to the current trait environment. */
+#define MyFaCSS_SYSTEM_COLOR_RED @"systemred"
+/* A teal color that automatically adapts to the current trait environment. */
+#define MyFaCSS_SYSTEM_COLOR_TEAL @"systemteal"
+/* A yellow color that automatically adapts to the current trait environment. */
+#define MyFaCSS_SYSTEM_COLOR_YELLOW @"systemyellow"
+// Adaptable Gray Colors
+/* The base gray color. */
+#define MyFaCSS_SYSTEM_COLOR_BASE_GRAY @"systemgray"
+/* A second-level shade of grey. */
+#define MyFaCSS_SYSTEM_COLOR_GRAY_2 @"systemgray2"
+/* A third-level shade of grey. */
+#define MyFaCSS_SYSTEM_COLOR_GRAY_3 @"systemgray3"
+/* A fourth-level shade of grey. */
+#define MyFaCSS_SYSTEM_COLOR_GRAY_4 @"systemgray4"
+/* A fifth-level shade of grey. */
+#define MyFaCSS_SYSTEM_COLOR_GRAY_5 @"systemgray5"
+/* A sixth-level shade of grey. */
+#define MyFaCSS_SYSTEM_COLOR_GRAY_6 @"systemgray6"
+// Transparent Color
+/* A color object with grayscale and alpha values that are both 0.0. */
+#define MyFaCSS_SYSTEM_COLOR_TRANSPARENT @"clear"
+// Fixed Colors
+/* A color object in the sRGB color space with a grayscale value of 0.0 and an alpha value of 1.0. */
+#define MyFaCSS_SYSTEM_COLOR_FIXED_BLACK @"black"
+/* A color object with RGB values of 0.0, 0.0, and 1.0, and an alpha value of 1.0. */
+#define MyFaCSS_SYSTEM_COLOR_FIXED_BLUE @"blue"
+/* A color object with RGB values of 0.6, 0.4, and 0.2, and an alpha value of 1.0. */
+#define MyFaCSS_SYSTEM_COLOR_FIXED_BROWN @"brown"
+/* A color object with RGB values of 0.0, 1.0, and 1.0, and an alpha value of 1.0. */
+#define MyFaCSS_SYSTEM_COLOR_FIXED_CYAN @"cyan"
+/* A color object with a grayscale value of 1/3 and an alpha value of 1.0. */
+#define MyFaCSS_SYSTEM_COLOR_FIXED_DARK_GRAY @"darkgray"
+/* A color object with a grayscale value of 0.5 and an alpha value of 1.0. */
+#define MyFaCSS_SYSTEM_COLOR_FIXED_GRAY @"gray"
+/* A color object with RGB values of 0.0, 1.0, and 0.0, and an alpha value of 1.0. */
+#define MyFaCSS_SYSTEM_COLOR_FIXED_GREEN @"green"
+/* A color object with a grayscale value of 2/3 and an alpha value of 1.0. */
+#define MyFaCSS_SYSTEM_COLOR_FIXED_LIGHT_GRAY @"lightgray"
+/* A color object with RGB values of 1.0, 0.0, and 1.0, and an alpha value of 1.0. */
+#define MyFaCSS_SYSTEM_COLOR_FIXED_MAGENTA @"magenta"
+/* A color object with RGB values of 1.0, 0.5, and 0.0, and an alpha value of 1.0. */
+#define MyFaCSS_SYSTEM_COLOR_FIXED_ORANGE @"orange"
+/* A color object with RGB values of 0.5, 0.0, and 0.5, and an alpha value of 1.0. */
+#define MyFaCSS_SYSTEM_COLOR_FIXED_PURPLE @"purple"
+/* A color object with RGB values of 1.0, 0.0, and 0.0, and an alpha value of 1.0. */
+#define MyFaCSS_SYSTEM_COLOR_FIXED_RED @"red"
+/* A color object with a grayscale value of 1.0 and an alpha value of 1.0. */
+#define MyFaCSS_SYSTEM_COLOR_FIXED_WHITE @"white"
+/* A color object with RGB values of 1.0, 1.0, and 0.0, and an alpha value of 1.0. */
+#define MyFaCSS_SYSTEM_COLOR_FIXED_ @"yellow"
+// Label Colors
+/* The color for text labels that contain primary content. */
+#define MyFaCSS_SYSTEM_COLOR_LABEL @"label"
+/* The color for text labels that contain secondary content. */
+#define MyFaCSS_SYSTEM_COLOR_LABEL_2 @"secondarylabel"
+/* The color for text labels that contain tertiary content. */
+#define MyFaCSS_SYSTEM_COLOR_LABEL_3 @"tertiarylabel"
+/* The color for text labels that contain quaternary content. */
+#define MyFaCSS_SYSTEM_COLOR_LABEL_4 @"quaternarylabel"
+// Fill Colors
+/* An overlay fill color for thin and small shapes. */
+#define MyFaCSS_SYSTEM_COLOR_FILL @"systemfill"
+/* An overlay fill color for medium-size shapes. */
+#define MyFaCSS_SYSTEM_COLOR_FILL_2 @"secondarysystemfill"
+/* An overlay fill color for large shapes. */
+#define MyFaCSS_SYSTEM_COLOR_FILL_3 @"tertiarysystemfill"
+/* An overlay fill color for large areas that contain complex content. */
+#define MyFaCSS_SYSTEM_COLOR_FILL_4 @"quaternarysystemfill"
+// Text Colors
+/* The color for placeholder text in controls or text views. */
+#define MyFaCSS_SYSTEM_COLOR_PLACEHOLDER @"placeholdertext"
+// Standard Content Background Colors
+// Use these colors for standard table views and designs that have a white primary background in a light environment.
+/* The color for the main background of your interface. */
+#define MyFaCSS_SYSTEM_COLOR_BACKGROUND @"systembackground"
+/* The color for content layered on top of the main background. */
+#define MyFaCSS_SYSTEM_COLOR_BACKGROUND_2 @"secondarysystembackground"
+/* The color for content layered on top of secondary backgrounds. */
+#define MyFaCSS_SYSTEM_COLOR_BACKGROUND_3 @"tertiarysystembackground"
+// Grouped Content Background Colors
+// Use these colors for grouped content, including table views and platter-based designs.
+/* The color for the main background of your grouped interface. */
+#define MyFaCSS_SYSTEM_COLOR_GROUPED_BACKGROUND @"systemgroupedbackground"
+/* The color for content layered on top of the main background of your grouped interface. */
+#define MyFaCSS_SYSTEM_COLOR_GROUPED_BACKGROUND_2 @"secondarysystemgroupedbackground"
+/* The color for content layered on top of secondary backgrounds of your grouped interface. */
+#define MyFaCSS_SYSTEM_COLOR_GROUPED_BACKGROUND_3 @"tertiarysystemgroupedbackground"
+// Separator Colors
+/* The color for thin borders or divider lines that allows some underlying content to be visible. */
+#define MyFaCSS_SYSTEM_COLOR_SEPARATOR @"separator"
+/* The color for borders or divider lines that hides any underlying content. */
+#define MyFaCSS_SYSTEM_COLOR_SEPARATOR_OPAQUE @"opaqueseparator"
+// Link Color
+/* The color for links. */
+#define MyFaCSS_SYSTEM_COLOR_LINK @"link"
+// Nonadaptable Colors
+/* The nonadaptable system color for text on a light background. */
+#define MyFaCSS_SYSTEM_COLOR_DARK_TEXT @"darktext"
+/* The nonadaptable system color for text on a dark background. */
+#define MyFaCSS_SYSTEM_COLOR_LIGHT_TEXT @"lighttext"
 
 /* Helper functions */
 
@@ -267,13 +382,17 @@ static NSObject* ISSLayoutAttributeSizeToFitFlag;
 - (UIColor*) parsePredefColorValue:(id)value {
     UIColor* color = [UIColor magentaColor];
     NSString* colorString = [[value iss_trimQuotes] lowercaseString];
+    if ([colorString hasPrefix:@"system"]) {
+        // For backwards compatibility (pre iOS 13)
+        BOOL isDarkmode = [colorString containsString:@"-dark"];
+        NSString *newString = isDarkmode ? [colorString stringByReplacingOccurrencesOfString:@"-dark" withString:@""] : colorString;
+        return [self systemColorNamed:[newString lowercaseString] forDarkMode:isDarkmode];
+    }
     if( ![colorString hasSuffix:@"color"] ) colorString = [colorString stringByAppendingString:@"color"];
-
     SEL colorSelector = [ISSRuntimeIntrospectionUtils findSelectorWithCaseInsensitiveName:colorString inClass:UIColor.class];
     if( colorSelector ) {
         color = [UIColor performSelector:colorSelector];
     }
-
     return color;
 }
 
@@ -1348,6 +1467,364 @@ static NSObject* ISSLayoutAttributeSizeToFitFlag;
         return [UIFont italicSystemFontOfSize:fontSize];
     }
     return [UIFont systemFontOfSize:fontSize];
+}
+
+- (UIColor *)systemColorNamed:(NSString *)colorName forDarkMode:(BOOL)isDark {
+    if ([colorName isEqualToString:MyFaCSS_SYSTEM_COLOR_BLUE]) {
+        if (@available(iOS 13.0, *)) {
+            return [UIColor systemBlueColor];
+        }
+        if (!isDark) {
+            return [UIColor colorWithRed:0.0/255.0 green:122.0/255.0 blue:255.0/255.0 alpha:1.0];
+        }
+        return [UIColor colorWithRed:10.0/255.0 green:132.0/255.0 blue:255.0/255.0 alpha:1.0];
+    }
+    if ([colorName isEqualToString:MyFaCSS_SYSTEM_COLOR_GREEN]) {
+        if (@available(iOS 13.0, *)) {
+            return [UIColor systemGreenColor];
+        }
+        if (!isDark) {
+            return [UIColor colorWithRed:52.0/255.0 green:199.0/255.0 blue:89.0/255.0 alpha:1.0];
+        }
+        return [UIColor colorWithRed:48.0/255.0 green:209.0/255.0 blue:88.0/255.0 alpha:1.0];
+    }
+    if ([colorName isEqualToString:MyFaCSS_SYSTEM_COLOR_INDIGO]) {
+        if (@available(iOS 13.0, *)) {
+            return [UIColor systemIndigoColor];
+        }
+        if (!isDark) {
+            return [UIColor colorWithRed:88.0/255.0 green:86.0/255.0 blue:214.0/255.0 alpha:1.0];
+        }
+        return [UIColor colorWithRed:94.0/255.0 green:92.0/255.0 blue:230.0/255.0 alpha:1.0];
+    }
+    if ([colorName isEqualToString:MyFaCSS_SYSTEM_COLOR_ORANGE]) {
+        if (@available(iOS 13.0, *)) {
+            return [UIColor systemOrangeColor];
+        }
+        if (!isDark) {
+            return [UIColor colorWithRed:255.0/255.0 green:149.0/255.0 blue:0.0/255.0 alpha:1.0];
+        }
+        return [UIColor colorWithRed:255.0/255.0 green:159.0/255.0 blue:10.0/255.0 alpha:1.0];
+    }
+    if ([colorName isEqualToString:MyFaCSS_SYSTEM_COLOR_PINK]) {
+        if (@available(iOS 13.0, *)) {
+            return [UIColor systemPinkColor];
+        }
+        if (!isDark) {
+            return [UIColor colorWithRed:255.0/255.0 green:45.0/255.0 blue:85.0/255.0 alpha:1.0];
+        }
+        return [UIColor colorWithRed:255.0/255.0 green:55.0/255.0 blue:95.0/255.0 alpha:1.0];
+    }
+    if ([colorName isEqualToString:MyFaCSS_SYSTEM_COLOR_PURPLE]) {
+        if (@available(iOS 13.0, *)) {
+            return [UIColor systemPurpleColor];
+        }
+        if (!isDark) {
+            return [UIColor colorWithRed:175.0/255.0 green:82.0/255.0 blue:222.0/255.0 alpha:1.0];
+        }
+        return [UIColor colorWithRed:191.0/255.0 green:90.0/255.0 blue:242.0/255.0 alpha:1.0];
+    }
+    if ([colorName isEqualToString:MyFaCSS_SYSTEM_COLOR_RED]) {
+        if (@available(iOS 13.0, *)) {
+            return [UIColor systemRedColor];
+        }
+        if (!isDark) {
+            return [UIColor colorWithRed:255.0/255.0 green:59.0/255.0 blue:48.0/255.0 alpha:1.0];
+        }
+        return [UIColor colorWithRed:255.0/255.0 green:69.0/255.0 blue:58.0/255.0 alpha:1.0];
+    }
+    if ([colorName isEqualToString:MyFaCSS_SYSTEM_COLOR_TEAL]) {
+        if (@available(iOS 13.0, *)) {
+            return [UIColor systemTealColor];
+        }
+        if (!isDark) {
+            return [UIColor colorWithRed:90.0/255.0 green:200.0/255.0 blue:250.0/255.0 alpha:1.0];
+        }
+        return [UIColor colorWithRed:100.0/255.0 green:210.0/255.0 blue:255.0/255.0 alpha:1.0];
+    }
+    if ([colorName isEqualToString:MyFaCSS_SYSTEM_COLOR_YELLOW]) {
+        if (@available(iOS 13.0, *)) {
+            return [UIColor systemYellowColor];
+        }
+        if (!isDark) {
+            return [UIColor colorWithRed:255.0/255.0 green:204.0/255.0 blue:0.0/255.0 alpha:1.0];
+        }
+        return [UIColor colorWithRed:255.0/255.0 green:214.0/255.0 blue:10.0/255.0 alpha:1.0];
+    }
+    if ([colorName isEqualToString:MyFaCSS_SYSTEM_COLOR_BASE_GRAY]) {
+        if (@available(iOS 13.0, *)) {
+            return [UIColor systemGrayColor];
+        }
+        if (!isDark) {
+            return [UIColor colorWithRed:142.0/255.0 green:142.0/255.0 blue:147.0/255.0 alpha:1.0];
+        }
+        return [UIColor colorWithRed:142.0/255.0 green:142.0/255.0 blue:147.0/255.0 alpha:1.0];
+    }
+    if ([colorName isEqualToString:MyFaCSS_SYSTEM_COLOR_GRAY_2]) {
+        if (@available(iOS 13.0, *)) {
+            return [UIColor systemGray2Color];
+        }
+        if (!isDark) {
+            return [UIColor colorWithRed:174.0/255.0 green:174.0/255.0 blue:178.0/255.0 alpha:1.0];
+        }
+        return [UIColor colorWithRed:99.0/255.0 green:99.0/255.0 blue:102.0/255.0 alpha:1.0];
+    }
+    if ([colorName isEqualToString:MyFaCSS_SYSTEM_COLOR_GRAY_3]) {
+        if (@available(iOS 13.0, *)) {
+            return [UIColor systemGray3Color];
+        }
+        if (!isDark) {
+            return [UIColor colorWithRed:199.0/255.0 green:199.0/255.0 blue:204.0/255.0 alpha:1.0];
+        }
+        return [UIColor colorWithRed:72.0/255.0 green:72.0/255.0 blue:74.0/255.0 alpha:1.0];;
+    }
+    if ([colorName isEqualToString:MyFaCSS_SYSTEM_COLOR_GRAY_4]) {
+        if (@available(iOS 13.0, *)) {
+            return [UIColor systemGray4Color];
+        }
+        if (!isDark) {
+            return [UIColor colorWithRed:209.0/255.0 green:209.0/255.0 blue:214.0/255.0 alpha:1.0];
+        }
+        return [UIColor colorWithRed:58.0/255.0 green:58.0/255.0 blue:60.0/255.0 alpha:1.0];
+    }
+    if ([colorName isEqualToString:MyFaCSS_SYSTEM_COLOR_GRAY_5]) {
+        if (@available(iOS 13.0, *)) {
+            return [UIColor systemGray5Color];
+        }
+        if (!isDark) {
+            return [UIColor colorWithRed:229.0/255.0 green:229.0/255.0 blue:234.0/255.0 alpha:1.0];
+        }
+        return [UIColor colorWithRed:44.0/255.0 green:44.0/255.0 blue:46.0/255.0 alpha:1.0];
+    }
+    if ([colorName isEqualToString:MyFaCSS_SYSTEM_COLOR_GRAY_6]) {
+        if (@available(iOS 13.0, *)) {
+            return [UIColor systemGray6Color];
+        }
+        if (!isDark) {
+            return [UIColor colorWithRed:242.0/255.0 green:242.0/255.0 blue:247.0/255.0 alpha:1.0];
+        }
+        return [UIColor colorWithRed:28.0/255.0 green:28.0/255.0 blue:30.0/255.0 alpha:1.0];
+    }
+    if ([colorName isEqualToString:MyFaCSS_SYSTEM_COLOR_TRANSPARENT]) {
+        return [UIColor clearColor];
+    }
+    if ([colorName isEqualToString:MyFaCSS_SYSTEM_COLOR_FIXED_BLACK]) {
+        return [UIColor blackColor];
+    }
+    if ([colorName isEqualToString:MyFaCSS_SYSTEM_COLOR_FIXED_BLUE]) {
+        return [UIColor blueColor];
+    }
+    if ([colorName isEqualToString:MyFaCSS_SYSTEM_COLOR_FIXED_BROWN]) {
+        return [UIColor brownColor];
+    }
+    if ([colorName isEqualToString:MyFaCSS_SYSTEM_COLOR_FIXED_CYAN]) {
+        return [UIColor cyanColor];
+    }
+    if ([colorName isEqualToString:MyFaCSS_SYSTEM_COLOR_FIXED_DARK_GRAY]) {
+        return [UIColor darkGrayColor];
+    }
+    if ([colorName isEqualToString:MyFaCSS_SYSTEM_COLOR_FIXED_GRAY]) {
+        return [UIColor grayColor];
+    }
+    if ([colorName isEqualToString:MyFaCSS_SYSTEM_COLOR_FIXED_GREEN]) {
+        return [UIColor greenColor];
+    }
+    if ([colorName isEqualToString:MyFaCSS_SYSTEM_COLOR_FIXED_LIGHT_GRAY]) {
+        return [UIColor lightGrayColor];
+    }
+    if ([colorName isEqualToString:MyFaCSS_SYSTEM_COLOR_FIXED_MAGENTA]) {
+        return [UIColor magentaColor];
+    }
+    if ([colorName isEqualToString:MyFaCSS_SYSTEM_COLOR_FIXED_ORANGE]) {
+        return [UIColor orangeColor];
+    }
+    if ([colorName isEqualToString:MyFaCSS_SYSTEM_COLOR_FIXED_PURPLE]) {
+        return [UIColor purpleColor];
+    }
+    if ([colorName isEqualToString:MyFaCSS_SYSTEM_COLOR_FIXED_RED]) {
+        return [UIColor redColor];
+    }
+    if ([colorName isEqualToString:MyFaCSS_SYSTEM_COLOR_FIXED_WHITE]) {
+        return [UIColor whiteColor];
+    }
+    if ([colorName isEqualToString:MyFaCSS_SYSTEM_COLOR_FIXED_]) {
+        return [UIColor yellowColor];
+    }
+    if ([colorName isEqualToString:MyFaCSS_SYSTEM_COLOR_LABEL]) {
+        if (@available(iOS 13.0, *)) {
+            return [UIColor labelColor];
+        }
+        if (!isDark) {
+            return [UIColor colorWithRed: 0.0 green: 0.0 blue: 0.0 alpha: 1.0];
+        }
+        return [UIColor colorWithRed: 1.0 green: 1.0 blue: 1.0 alpha: 1.0];
+    }
+    if ([colorName isEqualToString:MyFaCSS_SYSTEM_COLOR_LABEL_2]) {
+        if (@available(iOS 13.0, *)) {
+            return [UIColor secondaryLabelColor];
+        }
+        if (!isDark) {
+            return [UIColor colorWithRed: 0.23529411764705882 green: 0.23529411764705882 blue: 0.2627450980392157 alpha: 0.6];
+        }
+        return [UIColor colorWithRed: 0.9215686274509803 green: 0.9215686274509803 blue: 0.9607843137254902 alpha: 0.6];
+    }
+    if ([colorName isEqualToString:MyFaCSS_SYSTEM_COLOR_LABEL_3]) {
+        if (@available(iOS 13.0, *)) {
+            return [UIColor tertiaryLabelColor];
+        }
+        if (!isDark) {
+            return [UIColor colorWithRed: 0.23529411764705882 green: 0.23529411764705882 blue: 0.2627450980392157 alpha: 0.3];
+        }
+        return [UIColor colorWithRed: 0.9215686274509803 green: 0.9215686274509803 blue: 0.9607843137254902 alpha: 0.3];
+    }
+    if ([colorName isEqualToString:MyFaCSS_SYSTEM_COLOR_LABEL_4]) {
+        if (@available(iOS 13.0, *)) {
+            return [UIColor quaternaryLabelColor];
+        }
+        if (!isDark) {
+            return [UIColor colorWithRed: 0.23529411764705882 green: 0.23529411764705882 blue: 0.2627450980392157 alpha: 0.18];
+        }
+        return [UIColor colorWithRed: 0.9215686274509803 green: 0.9215686274509803 blue: 0.9607843137254902 alpha: 0.18];
+    }
+    if ([colorName isEqualToString:MyFaCSS_SYSTEM_COLOR_FILL]) {
+        if (@available(iOS 13.0, *)) {
+            return [UIColor systemFillColor];
+        }
+        if (!isDark) {
+            return [UIColor colorWithRed: 0.47058823529411764 green: 0.47058823529411764 blue: 0.5019607843137255 alpha: 0.2];
+        }
+        return [UIColor colorWithRed: 0.47058823529411764 green: 0.47058823529411764 blue: 0.5019607843137255 alpha: 0.36];
+    }
+    if ([colorName isEqualToString:MyFaCSS_SYSTEM_COLOR_FILL_2]) {
+        if (@available(iOS 13.0, *)) {
+            return [UIColor secondarySystemFillColor];
+        }
+        if (!isDark) {
+            return [UIColor colorWithRed: 0.47058823529411764 green: 0.47058823529411764 blue: 0.5019607843137255 alpha: 0.16];
+        }
+        return [UIColor colorWithRed: 0.47058823529411764 green: 0.47058823529411764 blue: 0.5019607843137255 alpha: 0.32];
+    }
+    if ([colorName isEqualToString:MyFaCSS_SYSTEM_COLOR_FILL_3]) {
+        if (@available(iOS 13.0, *)) {
+            return [UIColor tertiarySystemFillColor];
+        }
+        if (!isDark) {
+            return [UIColor colorWithRed: 0.4627450980392157 green: 0.4627450980392157 blue: 0.5019607843137255 alpha: 0.12];
+        }
+        return [UIColor colorWithRed: 0.4627450980392157 green: 0.4627450980392157 blue: 0.5019607843137255 alpha: 0.24];
+    }
+    if ([colorName isEqualToString:MyFaCSS_SYSTEM_COLOR_FILL_4]) {
+        if (@available(iOS 13.0, *)) {
+            return [UIColor quaternarySystemFillColor];
+        }
+        if (!isDark) {
+            return [UIColor colorWithRed: 0.4549019607843137 green: 0.4549019607843137 blue: 0.5019607843137255 alpha: 0.08];
+        }
+        return [UIColor colorWithRed: 0.4627450980392157 green: 0.4627450980392157 blue: 0.5019607843137255 alpha: 0.18];
+    }
+    if ([colorName isEqualToString:MyFaCSS_SYSTEM_COLOR_PLACEHOLDER]) {
+        if (@available(iOS 13.0, *)) {
+            return [UIColor placeholderTextColor];
+        }
+        if (!isDark) {
+            return [UIColor colorWithRed: 0.23529411764705882 green: 0.23529411764705882 blue: 0.2627450980392157 alpha: 0.3];
+        }
+        return [UIColor colorWithRed: 0.9215686274509803 green: 0.9215686274509803 blue: 0.9607843137254902 alpha: 0.3];
+    }
+    if ([colorName isEqualToString:MyFaCSS_SYSTEM_COLOR_BACKGROUND]) {
+        if (@available(iOS 13.0, *)) {
+            return [UIColor systemBackgroundColor];
+        }
+        if (!isDark) {
+            return [UIColor colorWithRed: 1.0 green: 1.0 blue: 1.0 alpha: 1.0];
+        }
+        return [UIColor colorWithRed: 0.0 green: 0.0 blue: 0.0 alpha: 1.0];
+    }
+    if ([colorName isEqualToString:MyFaCSS_SYSTEM_COLOR_BACKGROUND_2]) {
+        if (@available(iOS 13.0, *)) {
+            return [UIColor secondarySystemBackgroundColor];
+        }
+        if (!isDark) {
+            return [UIColor colorWithRed: 0.9490196078431372 green: 0.9490196078431372 blue: 0.9686274509803922 alpha: 1.0];
+        }
+        return [UIColor colorWithRed: 0.10980392156862745 green: 0.10980392156862745 blue: 0.11764705882352941 alpha: 1.0];
+    }
+    if ([colorName isEqualToString:MyFaCSS_SYSTEM_COLOR_BACKGROUND_3]) {
+        if (@available(iOS 13.0, *)) {
+            return [UIColor tertiarySystemBackgroundColor];
+        }
+        if (!isDark) {
+            return [UIColor colorWithRed: 1.0 green: 1.0 blue: 1.0 alpha: 1.0];
+        }
+        return [UIColor colorWithRed: 0.17254901960784313 green: 0.17254901960784313 blue: 0.1803921568627451 alpha: 1.0];
+    }
+    if ([colorName isEqualToString:MyFaCSS_SYSTEM_COLOR_GROUPED_BACKGROUND]) {
+        if (@available(iOS 13.0, *)) {
+            return [UIColor systemGroupedBackgroundColor];
+        }
+        if (!isDark) {
+            return [UIColor colorWithRed: 0.9490196078431372 green: 0.9490196078431372 blue: 0.9686274509803922 alpha: 1.0];
+        }
+        return [UIColor colorWithRed: 0.0 green: 0.0 blue: 0.0 alpha: 1.0];
+    }
+    if ([colorName isEqualToString:MyFaCSS_SYSTEM_COLOR_GROUPED_BACKGROUND_2]) {
+        if (@available(iOS 13.0, *)) {
+            return [UIColor secondarySystemGroupedBackgroundColor];
+        }
+        if (!isDark) {
+            return [UIColor colorWithRed: 1.0 green: 1.0 blue: 1.0 alpha: 1.0];
+        }
+        return [UIColor colorWithRed: 0.10980392156862745 green: 0.10980392156862745 blue: 0.11764705882352941 alpha: 1.0];
+    }
+    if ([colorName isEqualToString:MyFaCSS_SYSTEM_COLOR_GROUPED_BACKGROUND_3]) {
+        if (@available(iOS 13.0, *)) {
+            return [UIColor tertiarySystemGroupedBackgroundColor];
+        }
+        if (!isDark) {
+            return [UIColor colorWithRed: 0.9490196078431372 green: 0.9490196078431372 blue: 0.9686274509803922 alpha: 1.0];
+        }
+        return [UIColor colorWithRed: 0.17254901960784313 green: 0.17254901960784313 blue: 0.1803921568627451 alpha: 1.0];
+    }
+    if ([colorName isEqualToString:MyFaCSS_SYSTEM_COLOR_SEPARATOR]) {
+        if (@available(iOS 13.0, *)) {
+            return [UIColor separatorColor];
+        }
+        if (!isDark) {
+            return [UIColor colorWithRed: 0.23529411764705882 green: 0.23529411764705882 blue: 0.2627450980392157 alpha: 0.29];
+        }
+        return [UIColor colorWithRed: 0.32941176470588235 green: 0.32941176470588235 blue: 0.34509803921568627 alpha: 0.6];
+    }
+    if ([colorName isEqualToString:MyFaCSS_SYSTEM_COLOR_SEPARATOR_OPAQUE]) {
+        if (@available(iOS 13.0, *)) {
+            return [UIColor opaqueSeparatorColor];
+        }
+        if (!isDark) {
+            return [UIColor colorWithRed: 0.7764705882352941 green: 0.7764705882352941 blue: 0.7843137254901961 alpha: 1.0];
+        }
+        return [UIColor colorWithRed: 0.2196078431372549 green: 0.2196078431372549 blue: 0.22745098039215686 alpha: 1.0];
+    }
+    if ([colorName isEqualToString:MyFaCSS_SYSTEM_COLOR_LINK]) {
+        if (@available(iOS 13.0, *)) {
+            return [UIColor linkColor];
+        }
+        if (!isDark) {
+            return [UIColor colorWithRed: 0.0 green: 0.47843137254901963 blue: 1.0 alpha: 1.0];
+        }
+        return [UIColor colorWithRed: 0.03529411764705882 green: 0.5176470588235295 blue: 1.0 alpha: 1.0];
+    }
+    if ([colorName isEqualToString:MyFaCSS_SYSTEM_COLOR_DARK_TEXT]) {
+        if (@available(iOS 13.0, *)) {
+            return [UIColor darkTextColor];
+        }
+        return [UIColor colorWithRed: 0.0 green: 0.0 blue: 0.0 alpha: 1.0];
+    }
+    if ([colorName isEqualToString:MyFaCSS_SYSTEM_COLOR_LIGHT_TEXT]) {
+        if (@available(iOS 13.0, *)) {
+            return [UIColor lightTextColor];
+        }
+        return [UIColor colorWithRed: 1.0 green: 1.0 blue: 1.0 alpha: 0.6];
+    }
+    return [UIColor magentaColor];
 }
 
 - (ISSParser*) rulesetParserWithContentParser:(ISSParser*)rulesetContentParser selectorsChainsDeclarations:(ISSParser*)selectorsChainsDeclarations {
