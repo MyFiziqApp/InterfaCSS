@@ -104,7 +104,7 @@
 /* A color object with a grayscale value of 1.0 and an alpha value of 1.0. */
 #define MyFaCSS_SYSTEM_COLOR_FIXED_WHITE @"white"
 /* A color object with RGB values of 1.0, 1.0, and 0.0, and an alpha value of 1.0. */
-#define MyFaCSS_SYSTEM_COLOR_FIXED_ @"yellow"
+#define MyFaCSS_SYSTEM_COLOR_FIXED_YELLOW @"yellow"
 // Label Colors
 /* The color for text labels that contain primary content. */
 #define MyFaCSS_SYSTEM_COLOR_LABEL @"label"
@@ -381,17 +381,21 @@ static NSObject* ISSLayoutAttributeSizeToFitFlag;
 
 - (UIColor*) parsePredefColorValue:(id)value {
     UIColor* color = [UIColor magentaColor];
-    NSString* colorString = [[value iss_trimQuotes] lowercaseString];
-    if ([colorString hasPrefix:@"system"]) {
-        // For backwards compatibility (pre iOS 13)
-        BOOL isDarkmode = [colorString containsString:@"-dark"];
-        NSString *newString = isDarkmode ? [colorString stringByReplacingOccurrencesOfString:@"-dark" withString:@""] : colorString;
-        return [self systemColorNamed:[newString lowercaseString] forDarkMode:isDarkmode];
+    NSString *originalvalue = [[value iss_trimQuotes] lowercaseString];
+    NSString* colorString = originalvalue;
+    if(![colorString hasSuffix:@"color"]) {
+        colorString = [colorString stringByAppendingString:@"color"];
     }
-    if( ![colorString hasSuffix:@"color"] ) colorString = [colorString stringByAppendingString:@"color"];
-    SEL colorSelector = [ISSRuntimeIntrospectionUtils findSelectorWithCaseInsensitiveName:colorString inClass:UIColor.class];
-    if( colorSelector ) {
-        color = [UIColor performSelector:colorSelector];
+    BOOL isDarkmode = [originalvalue containsString:@"-dark"];
+    NSString *newString = isDarkmode ? [originalvalue stringByReplacingOccurrencesOfString:@"-dark" withString:@""] : originalvalue;
+    color = [self systemColorNamed:[newString lowercaseString] forDarkMode:isDarkmode];
+    // For backwards compatibility (pre iOS 13)
+    if (color == [UIColor magentaColor]) {
+        SEL colorSelector = [ISSRuntimeIntrospectionUtils findSelectorWithCaseInsensitiveName:colorString inClass:UIColor.class];
+        // This will work for system colors already.
+        if( colorSelector ) {
+            color = [UIColor performSelector:colorSelector];
+        }
     }
     return color;
 }
@@ -1647,7 +1651,7 @@ static NSObject* ISSLayoutAttributeSizeToFitFlag;
     if ([colorName isEqualToString:MyFaCSS_SYSTEM_COLOR_FIXED_WHITE]) {
         return [UIColor whiteColor];
     }
-    if ([colorName isEqualToString:MyFaCSS_SYSTEM_COLOR_FIXED_]) {
+    if ([colorName isEqualToString:MyFaCSS_SYSTEM_COLOR_FIXED_YELLOW]) {
         return [UIColor yellowColor];
     }
     if ([colorName isEqualToString:MyFaCSS_SYSTEM_COLOR_LABEL]) {
