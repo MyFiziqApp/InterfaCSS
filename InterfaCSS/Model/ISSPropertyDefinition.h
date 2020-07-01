@@ -35,6 +35,9 @@ typedef NS_ENUM(NSInteger, ISSPropertyType) {
     ISSPropertyTypeFont,
     ISSPropertyTypeImage,
     ISSPropertyTypeEnumType,
+    #if __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_13_0
+    ISSPropertyTypeImageSymbolConfiguration
+    #endif
 };
 
 /**

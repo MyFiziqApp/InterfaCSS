@@ -483,6 +483,19 @@ static void createSegmentIfNeeded(UISegmentedControl* segmentedControl, NSUInteg
         }
         return success;
     });
+    
+    #if __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_13_0
+    ISSPropertyDefinition *preferredSymbolConfiguration = ps(S(preferredSymbolConfiguration), ISSPropertyTypeImageSymbolConfiguration, ^BOOL(ISSPropertyDefinition * _Nonnull property, id  _Nonnull viewObject, id  _Nullable value, NSArray * _Nullable parameters) {
+           BOOL success = YES;
+           if ([viewObject respondsToSelector:@selector(setPreferredSymbolConfiguration:)]) {
+               UIImageSymbolConfiguration *imageConfiguration = (UIImageSymbolConfiguration *)value;
+               [viewObject setPreferredSymbolConfiguration:imageConfiguration];
+           } else {
+               success = NO;
+           }
+        return success;
+       });
+    #endif
 
     ISSPropertyDefinition* image = pp(S(image), controlStateParametersValues, ISSPropertyTypeImage, ^(SetterBlockParamList) {
         BOOL success = YES;
@@ -932,6 +945,14 @@ static void createSegmentIfNeeded(UISegmentedControl* segmentedControl, NSUInteg
             p(S(titleEdgeInsets), ISSPropertyTypeEdgeInsets),
             p(S(imageEdgeInsets), ISSPropertyTypeEdgeInsets),
             p(S(reversesTitleShadowWhenHighlighted), ISSPropertyTypeBool),
+            #if __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_13_0
+            pp(@"preferredSymbolConfiguration", controlStateParametersValues, ISSPropertyTypeImageSymbolConfiguration, ^(SetterBlockParamList) {
+                UIControlState state = parameters.count > 0 ? (UIControlState)[parameters[0] unsignedIntegerValue] : UIControlStateNormal;
+                if( [viewObject respondsToSelector:@selector(setPreferredSymbolConfiguration:forImageInState:)] ) [viewObject setPreferredSymbolConfiguration:value forImageInState:state];
+                else return NO;
+                return YES;
+            }),
+            #endif
             title,
             attributedTitle,
             pp(@"titleColor", controlStateParametersValues, ISSPropertyTypeColor, ^(SetterBlockParamList) {
@@ -946,6 +967,14 @@ static void createSegmentIfNeeded(UISegmentedControl* segmentedControl, NSUInteg
                 else return NO;
                 return YES;
             }),
+            #if __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_13_0
+            pp(@"imageTintColor", controlStateParametersValues, ISSPropertyTypeColor, ^(SetterBlockParamList) {
+                UIControlState state = parameters.count > 0 ? (UIControlState)[parameters[0] unsignedIntegerValue] : UIControlStateNormal;
+                if( [viewObject respondsToSelector:@selector(currentImage)] ) [[[viewObject currentImage] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] imageWithTintColor:value];
+                else return NO;
+                return YES;
+            }),
+            #endif
             image,
             backgroundImage
     ]];
@@ -1083,6 +1112,15 @@ static void createSegmentIfNeeded(UISegmentedControl* segmentedControl, NSUInteg
 
     NSSet*imageViewProperties = [NSSet setWithArray:@[
             image,
+            #if __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_13_0
+            p(S(preferredSymbolConfiguration), ISSPropertyTypeImageSymbolConfiguration),
+            pp(@"imageTintColor", controlStateParametersValues, ISSPropertyTypeColor, ^(SetterBlockParamList) {
+                UIControlState state = parameters.count > 0 ? (UIControlState)[parameters[0] unsignedIntegerValue] : UIControlStateNormal;
+                if( [viewObject respondsToSelector:@selector(image)] ) [[[viewObject image] imageWithRenderingMode:UIImageRenderingModeAlwaysTemplate] imageWithTintColor:value];
+                else return NO;
+                return YES;
+            }),
+            #endif
             p(S(highlightedImage), ISSPropertyTypeImage)
         ]];
     allProperties = [allProperties setByAddingObjectsFromSet:imageViewProperties];

@@ -168,6 +168,9 @@ NSString* const ISSAnonymousPropertyDefinitionName = @"ISSAnonymousPropertyDefin
         case ISSPropertyTypeFont : return @"UIFont";
         case ISSPropertyTypeImage : return @"UIImage";
         case ISSPropertyTypeEnumType : return @"Enum";
+        #if __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_13_0
+        case ISSPropertyTypeImageSymbolConfiguration : return @"UIImageSymbolConfiguration";
+        #endif
         default: return @"NSString";
     }
 }

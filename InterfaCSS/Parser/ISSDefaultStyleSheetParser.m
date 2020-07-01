@@ -1112,7 +1112,250 @@ static NSObject* ISSLayoutAttributeSizeToFitFlag;
             else return [NSNull null];
         } name:@"image"];
 
-
+#if __IPHONE_OS_VERSION_MIN_REQUIRED >= __IPHONE_13_0
+    /** -- UIImageSymbolConfiguration  -- **/
+    
+    ISSParser* weightSymbolConfigurationParser = [[ISSParser iss_parameterStringWithPrefix:@"weight"] transform:^id(NSArray* values) {
+        UIImageSymbolConfiguration *imgSymbolConfiguration = nil;
+        if( values.count > 0 ) {
+            NSString* weight = values[0];
+            if ([weight isEqualToString:@"\"ultraLight\""]) {
+                imgSymbolConfiguration = [UIImageSymbolConfiguration configurationWithWeight:UIImageSymbolWeightUltraLight];
+            } else if ([weight isEqualToString:@"\"thin\""]) {
+                imgSymbolConfiguration = [UIImageSymbolConfiguration configurationWithWeight:UIImageSymbolWeightThin];
+            } else if ([weight isEqualToString:@"\"light\""]) {
+                imgSymbolConfiguration = [UIImageSymbolConfiguration configurationWithWeight:UIImageSymbolWeightLight];
+            } else if ([weight isEqualToString:@"\"regular\""]) {
+                imgSymbolConfiguration = [UIImageSymbolConfiguration configurationWithWeight:UIImageSymbolWeightRegular];
+            } else if ([weight isEqualToString:@"\"medium\""]) {
+                imgSymbolConfiguration = [UIImageSymbolConfiguration configurationWithWeight:UIImageSymbolWeightMedium];
+            } else if ([weight isEqualToString:@"\"semibold\""]) {
+                imgSymbolConfiguration = [UIImageSymbolConfiguration configurationWithWeight:UIImageSymbolWeightSemibold];
+            } else if ([weight isEqualToString:@"\"bold\""]) {
+                imgSymbolConfiguration = [UIImageSymbolConfiguration configurationWithWeight:UIImageSymbolWeightBold];
+            } else if ([weight isEqualToString:@"\"heavy\""]) {
+                imgSymbolConfiguration = [UIImageSymbolConfiguration configurationWithWeight:UIImageSymbolWeightHeavy];
+            } else if ([weight isEqualToString:@"\"black\""]) {
+                imgSymbolConfiguration = [UIImageSymbolConfiguration configurationWithWeight:UIImageSymbolWeightBlack];
+            } else {
+                imgSymbolConfiguration = [UIImageSymbolConfiguration configurationWithWeight:UIImageSymbolWeightUnspecified];
+            }
+        }
+        if( imgSymbolConfiguration ) return imgSymbolConfiguration;
+        else return [NSNull null];
+    } name:@"weight"];
+    
+    ISSParser* pointSizeSymbolConfigurationParser = [[ISSParser iss_parameterStringWithPrefix:@"pointSize"] transform:^id(NSArray* values) {
+        UIImageSymbolConfiguration *pointSizeSymbolConfiguration = nil;
+        if( values.count > 0 ) {
+            CGFloat pointSize = [values[0] floatValue];
+            pointSizeSymbolConfiguration = [UIImageSymbolConfiguration configurationWithPointSize:pointSize];
+        }
+        if( pointSizeSymbolConfiguration ) return pointSizeSymbolConfiguration;
+        else return [NSNull null];
+    } name:@"pointSize"];
+    
+    ISSParser* weightPointSymbolConfigurationParser = [[ISSParser iss_parameterStringWithPrefix:@"weightPoint"] transform:^id(NSArray* values) {
+        UIImageSymbolConfiguration *weightPointSymbolConfiguration = nil;
+        if( values.count > 0 ) {
+            NSString *weight = values[0];
+            CGFloat pointSize = [values[1] floatValue];
+            if ([weight isEqualToString:@"\"ultraLight\""]) {
+                weightPointSymbolConfiguration = [UIImageSymbolConfiguration configurationWithPointSize:pointSize weight:UIImageSymbolWeightUltraLight];
+            } else if ([weight isEqualToString:@"\"thin\""]) {
+                weightPointSymbolConfiguration = [UIImageSymbolConfiguration configurationWithPointSize:pointSize weight:UIImageSymbolWeightThin];
+            } else if ([weight isEqualToString:@"\"light\""]) {
+                weightPointSymbolConfiguration = [UIImageSymbolConfiguration configurationWithPointSize:pointSize weight:UIImageSymbolWeightLight];
+            } else if ([weight isEqualToString:@"\"regular\""]) {
+                weightPointSymbolConfiguration = [UIImageSymbolConfiguration configurationWithPointSize:pointSize weight:UIImageSymbolWeightRegular];
+            } else if ([weight isEqualToString:@"\"medium\""]) {
+                weightPointSymbolConfiguration = [UIImageSymbolConfiguration configurationWithPointSize:pointSize weight:UIImageSymbolWeightMedium];
+            } else if ([weight isEqualToString:@"\"semibold\""]) {
+                weightPointSymbolConfiguration = [UIImageSymbolConfiguration configurationWithPointSize:pointSize weight:UIImageSymbolWeightSemibold];
+            } else if ([weight isEqualToString:@"\"bold\""]) {
+                weightPointSymbolConfiguration = [UIImageSymbolConfiguration configurationWithPointSize:pointSize weight:UIImageSymbolWeightBold];
+            } else if ([weight isEqualToString:@"\"heavy\""]) {
+                weightPointSymbolConfiguration = [UIImageSymbolConfiguration configurationWithPointSize:pointSize weight:UIImageSymbolWeightHeavy];
+            } else if ([weight isEqualToString:@"\"black\""]) {
+                weightPointSymbolConfiguration = [UIImageSymbolConfiguration configurationWithWeight:UIImageSymbolWeightBlack];
+            } else {
+                weightPointSymbolConfiguration = [UIImageSymbolConfiguration configurationWithWeight:UIImageSymbolWeightUnspecified];
+            }
+        }
+        if( weightPointSymbolConfiguration ) return weightPointSymbolConfiguration;
+        else return [NSNull null];
+    } name:@"weightPoint"];
+        
+    ISSParser* weightPointScaleSymbolConfigurationParser = [[ISSParser iss_parameterStringWithPrefix:@"weightPointScale"] transform:^id(NSArray* values) {
+        UIImageSymbolConfiguration *weightPointScaleSymbolConfiguration = nil;
+        if( values.count > 0 ) {
+            NSString *weight = values[0];
+            CGFloat pointSize = [values[1] floatValue];
+            NSString *scale =  values[2];
+            UIImageSymbolWeight weightSymbol;
+            if ([weight isEqualToString:@"\"ultraLight\""]) {
+                weightSymbol = UIImageSymbolWeightUltraLight;
+            } else if ([weight isEqualToString:@"\"thin\""]) {
+                weightSymbol = UIImageSymbolWeightThin;
+            } else if ([weight isEqualToString:@"\"light\""]) {
+                weightSymbol = UIImageSymbolWeightLight;
+            } else if ([weight isEqualToString:@"\"regular\""]) {
+                weightSymbol = UIImageSymbolWeightRegular;
+            } else if ([weight isEqualToString:@"\"medium\""]) {
+                weightSymbol = UIImageSymbolWeightMedium;
+            } else if ([weight isEqualToString:@"\"semibold\""]) {
+                weightSymbol = UIImageSymbolWeightSemibold;
+            } else if ([weight isEqualToString:@"\"bold\""]) {
+                weightSymbol = UIImageSymbolWeightBold;
+            } else if ([weight isEqualToString:@"\"heavy\""]) {
+                weightSymbol = UIImageSymbolWeightHeavy;
+            } else if ([weight isEqualToString:@"\"black\""]) {
+                weightSymbol = UIImageSymbolWeightBlack;
+            } else {
+                weightSymbol = UIImageSymbolWeightUnspecified;
+            }
+           UIImageSymbolScale scaleSymbol;
+           if ([scale isEqualToString:@"\"small\""]) {
+                scaleSymbol = UIImageSymbolScaleSmall;
+           } else if ([scale isEqualToString:@"\"medium\""]) {
+                scaleSymbol = UIImageSymbolScaleMedium;
+           } else if ([scale isEqualToString:@"\"large\""]) {
+                scaleSymbol = UIImageSymbolScaleLarge;
+           } else if ([scale isEqualToString:@"\"default\""]) {
+                scaleSymbol = UIImageSymbolScaleDefault;
+           } else {
+               scaleSymbol = UIImageSymbolScaleUnspecified;
+           }
+           weightPointScaleSymbolConfiguration = [UIImageSymbolConfiguration configurationWithPointSize:pointSize weight:weightSymbol scale:scaleSymbol];
+        }
+        if( weightPointScaleSymbolConfiguration ) return weightPointScaleSymbolConfiguration;
+        else return [NSNull null];
+    } name:@"weightPointScale"];
+    
+    ISSParser* textStyleSymbolConfigurationParser = [[ISSParser iss_parameterStringWithPrefix:@"textStyle"] transform:^id(NSArray* values) {
+        UIImageSymbolConfiguration *textStyleSymbolConfiguration = nil;
+        if ( values.count > 0 ) {
+            NSString *textStyle = values[0];
+            UIFontTextStyle fontTextStyle;
+            if ([fontTextStyle isEqualToString:@"\"headline\""]) {
+                textStyle = UIFontTextStyleHeadline;
+            } else if ([fontTextStyle isEqualToString:@"\"subheadline\""]) {
+                textStyle = UIFontTextStyleSubheadline;
+            } else if ([fontTextStyle isEqualToString:@"\"body\""]) {
+                textStyle = UIFontTextStyleBody;
+            } else if ([fontTextStyle isEqualToString:@"\"callout\""]) {
+                textStyle = UIFontTextStyleCallout;
+            } else if ([fontTextStyle isEqualToString:@"\"footnote\""]) {
+                textStyle = UIFontTextStyleFootnote;
+            } else if ([fontTextStyle isEqualToString:@"\"caption1\""]) {
+                textStyle = UIFontTextStyleCaption1;
+            } else if ([fontTextStyle isEqualToString:@"\"caption2\""]) {
+                textStyle = UIFontTextStyleCaption2;
+            } else if ([fontTextStyle isEqualToString:@"\"title1\""]) {
+                textStyle = UIFontTextStyleTitle1;
+            } else if ([fontTextStyle isEqualToString:@"\"title2\""]) {
+                textStyle = UIFontTextStyleTitle2;
+            } else if ([fontTextStyle isEqualToString:@"\"title3\""]) {
+                textStyle = UIFontTextStyleTitle3;
+            } else if ([fontTextStyle isEqualToString:@"\"largetitle\""]) {
+                textStyle = UIFontTextStyleLargeTitle;
+            }
+           textStyleSymbolConfiguration = [UIImageSymbolConfiguration configurationWithTextStyle:textStyle];
+        }
+        if( textStyleSymbolConfiguration ) return textStyleSymbolConfiguration;
+        else return [NSNull null];
+    } name:@"textStyle"];
+    
+    ISSParser* textStyleScaleSymbolConfigurationParser = [[ISSParser iss_parameterStringWithPrefix:@"textStyleScale"] transform:^id(NSArray* values) {
+        UIImageSymbolConfiguration *textStyleScaleSymbolConfiguration = nil;
+        if( values.count > 0 ) {
+            NSString *textStyle = values[0];
+            NSString *scale =  values[1];
+            UIFontTextStyle fontTextStyle;
+            if ([textStyle isEqualToString:@"\"headline\""]) {
+                fontTextStyle = UIFontTextStyleHeadline;
+            } else if ([textStyle isEqualToString:@"\"subheadline\""]) {
+                fontTextStyle = UIFontTextStyleSubheadline;
+            } else if ([textStyle isEqualToString:@"\"body\""]) {
+                fontTextStyle = UIFontTextStyleBody;
+            } else if ([textStyle isEqualToString:@"\"callout\""]) {
+                fontTextStyle = UIFontTextStyleCallout;
+            } else if ([textStyle isEqualToString:@"\"footnote\""]) {
+                fontTextStyle = UIFontTextStyleFootnote;
+            } else if ([textStyle isEqualToString:@"\"caption1\""]) {
+                fontTextStyle = UIFontTextStyleCaption1;
+            } else if ([textStyle isEqualToString:@"\"caption2\""]) {
+                fontTextStyle = UIFontTextStyleCaption2;
+            } else if ([textStyle isEqualToString:@"\"title1\""]) {
+                fontTextStyle = UIFontTextStyleTitle1;
+            } else if ([textStyle isEqualToString:@"\"title2\""]) {
+                fontTextStyle = UIFontTextStyleTitle2;
+            } else if ([textStyle isEqualToString:@"\"title3\""]) {
+                fontTextStyle = UIFontTextStyleTitle3;
+            } else if ([textStyle isEqualToString:@"\"largetitle\""]) {
+                fontTextStyle = UIFontTextStyleLargeTitle;
+            }
+           UIImageSymbolScale scaleSymbol;
+           if ([scale isEqualToString:@"\"small\""]) {
+                scaleSymbol = UIImageSymbolScaleSmall;
+           } else if ([scale isEqualToString:@"\"medium\""]) {
+                scaleSymbol = UIImageSymbolScaleMedium;
+           } else if ([scale isEqualToString:@"\"large\""]) {
+                scaleSymbol = UIImageSymbolScaleLarge;
+           } else if ([scale isEqualToString:@"\"default\""]) {
+               scaleSymbol = UIImageSymbolScaleDefault;
+           } else {
+               scaleSymbol = UIImageSymbolScaleUnspecified;
+           }
+           textStyleScaleSymbolConfiguration = [UIImageSymbolConfiguration configurationWithTextStyle:textStyle scale:scale];
+        }
+        if( textStyleScaleSymbolConfiguration ) return textStyleScaleSymbolConfiguration;
+        else return [NSNull null];
+    } name:@"textStyleScale"];
+    
+    ISSParser* fontSymbolConfigurationParser = [[ISSParser iss_parameterStringWithPrefix:@"font"] transform:^id(NSArray* values) {
+        UIImageSymbolConfiguration *fontSymbolConfiguration = nil;
+        if( values.count > 0 ) {
+            NSString *fontName = [values[0] iss_trimQuotes];
+            CGFloat fontSize = [values[1] floatValue];
+            UIFont *font = [UIFont fontWithName:fontName size:fontSize];
+            fontSymbolConfiguration = [UIImageSymbolConfiguration configurationWithFont:font];
+        }
+        if( fontSymbolConfiguration ) return fontSymbolConfiguration;
+        else return [NSNull null];
+    } name:@"font"];
+    
+    ISSParser* fontScaleSymbolConfigurationParser = [[ISSParser iss_parameterStringWithPrefix:@"fontScale"] transform:^id(NSArray* values) {
+        UIImageSymbolConfiguration *fontScaleSymbolConfiguration = nil;
+        if( values.count > 0 ) {
+            NSString *fontName = values[0];
+            CGFloat fontSize = [values[1] floatValue];
+            NSString *scale = values[2];
+            UIImageSymbolScale scaleSymbol;
+            if ([scale isEqualToString:@"\"small\""]) {
+                 scaleSymbol = UIImageSymbolScaleSmall;
+            } else if ([scale isEqualToString:@"\"medium\""]) {
+                 scaleSymbol = UIImageSymbolScaleMedium;
+            } else if ([scale isEqualToString:@"\"large\""]) {
+                 scaleSymbol = UIImageSymbolScaleLarge;
+            } else if ([scale isEqualToString:@"\"default\""]) {
+                scaleSymbol = UIImageSymbolScaleDefault;
+            } else {
+                scaleSymbol = UIImageSymbolScaleUnspecified;
+            }
+            UIFont *font = [UIFont fontWithName:fontName size:fontSize];
+            fontScaleSymbolConfiguration = [UIImageSymbolConfiguration configurationWithFont:font scale:scale];
+        }
+        if( fontScaleSymbolConfiguration ) return fontScaleSymbolConfiguration;
+        else return [NSNull null];
+    } name:@"fontScale"];
+    
+    typeToParser[@(ISSPropertyTypeImageSymbolConfiguration)] = [ISSParser choice:@[weightSymbolConfigurationParser,
+    pointSizeSymbolConfigurationParser, weightPointSymbolConfigurationParser,
+    weightPointScaleSymbolConfigurationParser, textStyleSymbolConfigurationParser, textStyleScaleSymbolConfigurationParser, fontSymbolConfigurationParser, fontScaleSymbolConfigurationParser]];
+    
+#endif
+    
     /** -- UIColor / CGColor -- **/
     NSArray* colorCatchAllParsers = [self colorCatchAllParser:imageParser];
     NSArray* uiColorValueParsers = [self basicColorValueParsers];
