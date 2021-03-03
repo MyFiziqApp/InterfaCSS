@@ -6,8 +6,9 @@
 //  License: MIT (http://www.github.com/tolo/InterfaCSS/LICENSE)
 //
 
+#import <UIKit/UIKit.h>
+#import <Foundation/Foundation.h>
 #import "UICollectionView+InterfaCSS.h"
-
 #import "ISSUIElementDetails.h"
 #import "UIView+ISSPrototypeReusableView.h"
 
